@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Documents\\Facultate\\SSC\\Structure-of-Computer-Systems-Labs\\Lab 2\\lab02_ex1\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{DBB50486-09DC-4918-961D-9A9A12E6045E}|lab02_ex1\\lab02_ex1.vcxproj|D:\\Documents\\Facultate\\SSC\\Structure-of-Computer-Systems-Labs\\Lab 2\\lab02_ex1\\lab02_ex1\\lab02_ex1.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{DBB50486-09DC-4918-961D-9A9A12E6045E}|lab02_ex1\\lab02_ex1.vcxproj|solutionrelative:lab02_ex1\\lab02_ex1.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "lab02_ex1.cpp",
+              "DocumentMoniker": "D:\\Documents\\Facultate\\SSC\\Structure-of-Computer-Systems-Labs\\Lab 2\\lab02_ex1\\lab02_ex1\\lab02_ex1.cpp",
+              "RelativeDocumentMoniker": "lab02_ex1\\lab02_ex1.cpp",
+              "ToolTip": "D:\\Documents\\Facultate\\SSC\\Structure-of-Computer-Systems-Labs\\Lab 2\\lab02_ex1\\lab02_ex1\\lab02_ex1.cpp",
+              "RelativeToolTip": "lab02_ex1\\lab02_ex1.cpp",
+              "ViewState": "AgIAAD8AAAAAAAAAAAAAAEUAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-10-10T09:41:05.033Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

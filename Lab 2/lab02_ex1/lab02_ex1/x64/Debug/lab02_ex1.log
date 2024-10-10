@@ -1,0 +1,90 @@
+﻿  lab02_ex1.cpp
+D:\Documents\Facultate\SSC\Structure-of-Computer-Systems-Labs\Lab 2\lab02_ex1\lab02_ex1\lab02_ex1.cpp(15,2): error C4235: nonstandard extension used: '__asm' keyword not supported on this architecture
+D:\Documents\Facultate\SSC\Structure-of-Computer-Systems-Labs\Lab 2\lab02_ex1\lab02_ex1\lab02_ex1.cpp(16,14): error C4235: nonstandard extension used: '__asm' keyword not supported on this architecture
+D:\Documents\Facultate\SSC\Structure-of-Computer-Systems-Labs\Lab 2\lab02_ex1\lab02_ex1\lab02_ex1.cpp(16,5): error C2065: 'call': undeclared identifier
+D:\Documents\Facultate\SSC\Structure-of-Computer-Systems-Labs\Lab 2\lab02_ex1\lab02_ex1\lab02_ex1.cpp(16,10): error C2146: syntax error: missing ';' before identifier 'the'
+D:\Documents\Facultate\SSC\Structure-of-Computer-Systems-Labs\Lab 2\lab02_ex1\lab02_ex1\lab02_ex1.cpp(16,10): error C2065: 'the': undeclared identifier
+D:\Documents\Facultate\SSC\Structure-of-Computer-Systems-Labs\Lab 2\lab02_ex1\lab02_ex1\lab02_ex1.cpp(16,14): error C2146: syntax error: missing ';' before identifier '__emit'
+D:\Documents\Facultate\SSC\Structure-of-Computer-Systems-Labs\Lab 2\lab02_ex1\lab02_ex1\lab02_ex1.cpp(16,14): error C2065: '__emit': undeclared identifier
+D:\Documents\Facultate\SSC\Structure-of-Computer-Systems-Labs\Lab 2\lab02_ex1\lab02_ex1\lab02_ex1.cpp(16,14): error C2143: syntax error: missing ';' before 'user-defined literal'
+D:\Documents\Facultate\SSC\Structure-of-Computer-Systems-Labs\Lab 2\lab02_ex1\lab02_ex1\lab02_ex1.cpp(16,14): error C3688: invalid literal suffix 'fh'; literal operator or literal operator template 'operator ""fh' not found
+D:\Documents\Facultate\SSC\Structure-of-Computer-Systems-Labs\Lab 2\lab02_ex1\lab02_ex1\lab02_ex1.cpp(16,14): error C3688: invalid literal suffix 'a2h'; literal operator or literal operator template 'operator ""a2h' not found
+D:\Documents\Facultate\SSC\Structure-of-Computer-Systems-Labs\Lab 2\lab02_ex1\lab02_ex1\lab02_ex1.cpp(16,20): error C2146: syntax error: missing ';' before identifier 'instruction'
+D:\Documents\Facultate\SSC\Structure-of-Computer-Systems-Labs\Lab 2\lab02_ex1\lab02_ex1\lab02_ex1.cpp(16,20): error C2065: 'instruction': undeclared identifier
+D:\Documents\Facultate\SSC\Structure-of-Computer-Systems-Labs\Lab 2\lab02_ex1\lab02_ex1\lab02_ex1.cpp(16,32): error C2146: syntax error: missing ';' before identifier 'three'
+D:\Documents\Facultate\SSC\Structure-of-Computer-Systems-Labs\Lab 2\lab02_ex1\lab02_ex1\lab02_ex1.cpp(16,32): error C2065: 'three': undeclared identifier
+D:\Documents\Facultate\SSC\Structure-of-Computer-Systems-Labs\Lab 2\lab02_ex1\lab02_ex1\lab02_ex1.cpp(16,38): error C2146: syntax error: missing ';' before identifier 'times'
+D:\Documents\Facultate\SSC\Structure-of-Computer-Systems-Labs\Lab 2\lab02_ex1\lab02_ex1\lab02_ex1.cpp(16,38): error C2065: 'times': undeclared identifier
+D:\Documents\Facultate\SSC\Structure-of-Computer-Systems-Labs\Lab 2\lab02_ex1\lab02_ex1\lab02_ex1.cpp(16,48): error C2065: 'use': undeclared identifier
+D:\Documents\Facultate\SSC\Structure-of-Computer-Systems-Labs\Lab 2\lab02_ex1\lab02_ex1\lab02_ex1.cpp(16,52): error C2146: syntax error: missing ';' before identifier 'the'
+D:\Documents\Facultate\SSC\Structure-of-Computer-Systems-Labs\Lab 2\lab02_ex1\lab02_ex1\lab02_ex1.cpp(16,52): error C2065: 'the': undeclared identifier
+D:\Documents\Facultate\SSC\Structure-of-Computer-Systems-Labs\Lab 2\lab02_ex1\lab02_ex1\lab02_ex1.cpp(16,56): error C2146: syntax error: missing ';' before identifier 'value'
+D:\Documents\Facultate\SSC\Structure-of-Computer-Systems-Labs\Lab 2\lab02_ex1\lab02_ex1\lab02_ex1.cpp(16,56): error C2065: 'value': undeclared identifier
+D:\Documents\Facultate\SSC\Structure-of-Computer-Systems-Labs\Lab 2\lab02_ex1\lab02_ex1\lab02_ex1.cpp(16,62): error C2146: syntax error: missing ';' before identifier 'generated'
+D:\Documents\Facultate\SSC\Structure-of-Computer-Systems-Labs\Lab 2\lab02_ex1\lab02_ex1\lab02_ex1.cpp(16,62): error C2065: 'generated': undeclared identifier
+D:\Documents\Facultate\SSC\Structure-of-Computer-Systems-Labs\Lab 2\lab02_ex1\lab02_ex1\lab02_ex1.cpp(16,72): error C2146: syntax error: missing ';' before identifier 'by'
+D:\Documents\Facultate\SSC\Structure-of-Computer-Systems-Labs\Lab 2\lab02_ex1\lab02_ex1\lab02_ex1.cpp(16,72): error C2065: 'by': undeclared identifier
+D:\Documents\Facultate\SSC\Structure-of-Computer-Systems-Labs\Lab 2\lab02_ex1\lab02_ex1\lab02_ex1.cpp(16,75): error C2146: syntax error: missing ';' before identifier 'the'
+D:\Documents\Facultate\SSC\Structure-of-Computer-Systems-Labs\Lab 2\lab02_ex1\lab02_ex1\lab02_ex1.cpp(16,75): error C2065: 'the': undeclared identifier
+D:\Documents\Facultate\SSC\Structure-of-Computer-Systems-Labs\Lab 2\lab02_ex1\lab02_ex1\lab02_ex1.cpp(16,79): error C2143: syntax error: missing ';' before 'user-defined literal'
+D:\Documents\Facultate\SSC\Structure-of-Computer-Systems-Labs\Lab 2\lab02_ex1\lab02_ex1\lab02_ex1.cpp(16,79): error C3688: invalid literal suffix 'rd'; literal operator or literal operator template 'operator ""rd' not found
+D:\Documents\Facultate\SSC\Structure-of-Computer-Systems-Labs\Lab 2\lab02_ex1\lab02_ex1\lab02_ex1.cpp(16,83): error C2146: syntax error: missing ';' before identifier 'call'
+D:\Documents\Facultate\SSC\Structure-of-Computer-Systems-Labs\Lab 2\lab02_ex1\lab02_ex1\lab02_ex1.cpp(18,3): error C4235: nonstandard extension used: '__asm' keyword not supported on this architecture
+D:\Documents\Facultate\SSC\Structure-of-Computer-Systems-Labs\Lab 2\lab02_ex1\lab02_ex1\lab02_ex1.cpp(16,83): error C2065: 'call': undeclared identifier
+D:\Documents\Facultate\SSC\Structure-of-Computer-Systems-Labs\Lab 2\lab02_ex1\lab02_ex1\lab02_ex1.cpp(17,3): error C2146: syntax error: missing ';' before identifier 'pushad'
+D:\Documents\Facultate\SSC\Structure-of-Computer-Systems-Labs\Lab 2\lab02_ex1\lab02_ex1\lab02_ex1.cpp(17,3): error C2065: 'pushad': undeclared identifier
+D:\Documents\Facultate\SSC\Structure-of-Computer-Systems-Labs\Lab 2\lab02_ex1\lab02_ex1\lab02_ex1.cpp(18,3): error C2146: syntax error: missing ';' before identifier '__emit'
+D:\Documents\Facultate\SSC\Structure-of-Computer-Systems-Labs\Lab 2\lab02_ex1\lab02_ex1\lab02_ex1.cpp(18,3): error C2065: '__emit': undeclared identifier
+D:\Documents\Facultate\SSC\Structure-of-Computer-Systems-Labs\Lab 2\lab02_ex1\lab02_ex1\lab02_ex1.cpp(18,3): error C2143: syntax error: missing ';' before 'user-defined literal'
+D:\Documents\Facultate\SSC\Structure-of-Computer-Systems-Labs\Lab 2\lab02_ex1\lab02_ex1\lab02_ex1.cpp(18,3): error C3688: invalid literal suffix 'fh'; literal operator or literal operator template 'operator ""fh' not found
+D:\Documents\Facultate\SSC\Structure-of-Computer-Systems-Labs\Lab 2\lab02_ex1\lab02_ex1\lab02_ex1.cpp(18,3): error C3688: invalid literal suffix 'a2h'; literal operator or literal operator template 'operator ""a2h' not found
+D:\Documents\Facultate\SSC\Structure-of-Computer-Systems-Labs\Lab 2\lab02_ex1\lab02_ex1\lab02_ex1.cpp(19,3): error C4235: nonstandard extension used: '__asm' keyword not supported on this architecture
+D:\Documents\Facultate\SSC\Structure-of-Computer-Systems-Labs\Lab 2\lab02_ex1\lab02_ex1\lab02_ex1.cpp(19,3): error C2146: syntax error: missing ';' before identifier '__emit'
+D:\Documents\Facultate\SSC\Structure-of-Computer-Systems-Labs\Lab 2\lab02_ex1\lab02_ex1\lab02_ex1.cpp(19,3): error C2065: '__emit': undeclared identifier
+D:\Documents\Facultate\SSC\Structure-of-Computer-Systems-Labs\Lab 2\lab02_ex1\lab02_ex1\lab02_ex1.cpp(19,3): error C2143: syntax error: missing ';' before 'user-defined literal'
+D:\Documents\Facultate\SSC\Structure-of-Computer-Systems-Labs\Lab 2\lab02_ex1\lab02_ex1\lab02_ex1.cpp(19,3): error C3688: invalid literal suffix 'fh'; literal operator or literal operator template 'operator ""fh' not found
+D:\Documents\Facultate\SSC\Structure-of-Computer-Systems-Labs\Lab 2\lab02_ex1\lab02_ex1\lab02_ex1.cpp(19,3): error C3688: invalid literal suffix 'h'; literal operator or literal operator template 'operator ""h' not found
+D:\Documents\Facultate\SSC\Structure-of-Computer-Systems-Labs\Lab 2\lab02_ex1\lab02_ex1\lab02_ex1.cpp(20,3): error C2146: syntax error: missing ';' before identifier 'mov'
+D:\Documents\Facultate\SSC\Structure-of-Computer-Systems-Labs\Lab 2\lab02_ex1\lab02_ex1\lab02_ex1.cpp(20,3): error C2065: 'mov': undeclared identifier
+D:\Documents\Facultate\SSC\Structure-of-Computer-Systems-Labs\Lab 2\lab02_ex1\lab02_ex1\lab02_ex1.cpp(20,7): error C2146: syntax error: missing ';' before identifier 'cycles_high1'
+D:\Documents\Facultate\SSC\Structure-of-Computer-Systems-Labs\Lab 2\lab02_ex1\lab02_ex1\lab02_ex1.cpp(20,21): error C2065: 'edx': undeclared identifier
+D:\Documents\Facultate\SSC\Structure-of-Computer-Systems-Labs\Lab 2\lab02_ex1\lab02_ex1\lab02_ex1.cpp(21,3): error C2146: syntax error: missing ';' before identifier 'mov'
+D:\Documents\Facultate\SSC\Structure-of-Computer-Systems-Labs\Lab 2\lab02_ex1\lab02_ex1\lab02_ex1.cpp(21,3): error C2065: 'mov': undeclared identifier
+D:\Documents\Facultate\SSC\Structure-of-Computer-Systems-Labs\Lab 2\lab02_ex1\lab02_ex1\lab02_ex1.cpp(21,7): error C2146: syntax error: missing ';' before identifier 'cycles_low1'
+D:\Documents\Facultate\SSC\Structure-of-Computer-Systems-Labs\Lab 2\lab02_ex1\lab02_ex1\lab02_ex1.cpp(21,20): error C2065: 'eax': undeclared identifier
+D:\Documents\Facultate\SSC\Structure-of-Computer-Systems-Labs\Lab 2\lab02_ex1\lab02_ex1\lab02_ex1.cpp(22,3): error C2146: syntax error: missing ';' before identifier 'popad'
+D:\Documents\Facultate\SSC\Structure-of-Computer-Systems-Labs\Lab 2\lab02_ex1\lab02_ex1\lab02_ex1.cpp(24,3): error C4235: nonstandard extension used: '__asm' keyword not supported on this architecture
+D:\Documents\Facultate\SSC\Structure-of-Computer-Systems-Labs\Lab 2\lab02_ex1\lab02_ex1\lab02_ex1.cpp(22,3): error C2065: 'popad': undeclared identifier
+D:\Documents\Facultate\SSC\Structure-of-Computer-Systems-Labs\Lab 2\lab02_ex1\lab02_ex1\lab02_ex1.cpp(23,3): error C2146: syntax error: missing ';' before identifier 'pushad'
+D:\Documents\Facultate\SSC\Structure-of-Computer-Systems-Labs\Lab 2\lab02_ex1\lab02_ex1\lab02_ex1.cpp(23,3): error C2065: 'pushad': undeclared identifier
+D:\Documents\Facultate\SSC\Structure-of-Computer-Systems-Labs\Lab 2\lab02_ex1\lab02_ex1\lab02_ex1.cpp(24,3): error C2146: syntax error: missing ';' before identifier '__emit'
+D:\Documents\Facultate\SSC\Structure-of-Computer-Systems-Labs\Lab 2\lab02_ex1\lab02_ex1\lab02_ex1.cpp(24,3): error C2065: '__emit': undeclared identifier
+D:\Documents\Facultate\SSC\Structure-of-Computer-Systems-Labs\Lab 2\lab02_ex1\lab02_ex1\lab02_ex1.cpp(24,3): error C2143: syntax error: missing ';' before 'user-defined literal'
+D:\Documents\Facultate\SSC\Structure-of-Computer-Systems-Labs\Lab 2\lab02_ex1\lab02_ex1\lab02_ex1.cpp(24,3): error C3688: invalid literal suffix 'fh'; literal operator or literal operator template 'operator ""fh' not found
+D:\Documents\Facultate\SSC\Structure-of-Computer-Systems-Labs\Lab 2\lab02_ex1\lab02_ex1\lab02_ex1.cpp(24,3): error C3688: invalid literal suffix 'a2h'; literal operator or literal operator template 'operator ""a2h' not found
+D:\Documents\Facultate\SSC\Structure-of-Computer-Systems-Labs\Lab 2\lab02_ex1\lab02_ex1\lab02_ex1.cpp(25,3): error C4235: nonstandard extension used: '__asm' keyword not supported on this architecture
+D:\Documents\Facultate\SSC\Structure-of-Computer-Systems-Labs\Lab 2\lab02_ex1\lab02_ex1\lab02_ex1.cpp(25,3): error C2146: syntax error: missing ';' before identifier '__emit'
+D:\Documents\Facultate\SSC\Structure-of-Computer-Systems-Labs\Lab 2\lab02_ex1\lab02_ex1\lab02_ex1.cpp(25,3): error C2065: '__emit': undeclared identifier
+D:\Documents\Facultate\SSC\Structure-of-Computer-Systems-Labs\Lab 2\lab02_ex1\lab02_ex1\lab02_ex1.cpp(25,3): error C2143: syntax error: missing ';' before 'user-defined literal'
+D:\Documents\Facultate\SSC\Structure-of-Computer-Systems-Labs\Lab 2\lab02_ex1\lab02_ex1\lab02_ex1.cpp(25,3): error C3688: invalid literal suffix 'fh'; literal operator or literal operator template 'operator ""fh' not found
+D:\Documents\Facultate\SSC\Structure-of-Computer-Systems-Labs\Lab 2\lab02_ex1\lab02_ex1\lab02_ex1.cpp(25,3): error C3688: invalid literal suffix 'h'; literal operator or literal operator template 'operator ""h' not found
+D:\Documents\Facultate\SSC\Structure-of-Computer-Systems-Labs\Lab 2\lab02_ex1\lab02_ex1\lab02_ex1.cpp(26,3): error C2146: syntax error: missing ';' before identifier 'popad'
+D:\Documents\Facultate\SSC\Structure-of-Computer-Systems-Labs\Lab 2\lab02_ex1\lab02_ex1\lab02_ex1.cpp(29,3): error C4235: nonstandard extension used: '__asm' keyword not supported on this architecture
+D:\Documents\Facultate\SSC\Structure-of-Computer-Systems-Labs\Lab 2\lab02_ex1\lab02_ex1\lab02_ex1.cpp(26,3): error C2065: 'popad': undeclared identifier
+D:\Documents\Facultate\SSC\Structure-of-Computer-Systems-Labs\Lab 2\lab02_ex1\lab02_ex1\lab02_ex1.cpp(28,3): error C2146: syntax error: missing ';' before identifier 'pushad'
+D:\Documents\Facultate\SSC\Structure-of-Computer-Systems-Labs\Lab 2\lab02_ex1\lab02_ex1\lab02_ex1.cpp(28,3): error C2065: 'pushad': undeclared identifier
+D:\Documents\Facultate\SSC\Structure-of-Computer-Systems-Labs\Lab 2\lab02_ex1\lab02_ex1\lab02_ex1.cpp(29,3): error C2146: syntax error: missing ';' before identifier '__emit'
+D:\Documents\Facultate\SSC\Structure-of-Computer-Systems-Labs\Lab 2\lab02_ex1\lab02_ex1\lab02_ex1.cpp(29,3): error C2065: '__emit': undeclared identifier
+D:\Documents\Facultate\SSC\Structure-of-Computer-Systems-Labs\Lab 2\lab02_ex1\lab02_ex1\lab02_ex1.cpp(29,3): error C2143: syntax error: missing ';' before 'user-defined literal'
+D:\Documents\Facultate\SSC\Structure-of-Computer-Systems-Labs\Lab 2\lab02_ex1\lab02_ex1\lab02_ex1.cpp(29,3): error C3688: invalid literal suffix 'fh'; literal operator or literal operator template 'operator ""fh' not found
+D:\Documents\Facultate\SSC\Structure-of-Computer-Systems-Labs\Lab 2\lab02_ex1\lab02_ex1\lab02_ex1.cpp(29,3): error C3688: invalid literal suffix 'a2h'; literal operator or literal operator template 'operator ""a2h' not found
+D:\Documents\Facultate\SSC\Structure-of-Computer-Systems-Labs\Lab 2\lab02_ex1\lab02_ex1\lab02_ex1.cpp(30,3): error C4235: nonstandard extension used: '__asm' keyword not supported on this architecture
+D:\Documents\Facultate\SSC\Structure-of-Computer-Systems-Labs\Lab 2\lab02_ex1\lab02_ex1\lab02_ex1.cpp(30,3): error C2146: syntax error: missing ';' before identifier '__emit'
+D:\Documents\Facultate\SSC\Structure-of-Computer-Systems-Labs\Lab 2\lab02_ex1\lab02_ex1\lab02_ex1.cpp(30,3): error C2065: '__emit': undeclared identifier
+D:\Documents\Facultate\SSC\Structure-of-Computer-Systems-Labs\Lab 2\lab02_ex1\lab02_ex1\lab02_ex1.cpp(30,3): error C2143: syntax error: missing ';' before 'user-defined literal'
+D:\Documents\Facultate\SSC\Structure-of-Computer-Systems-Labs\Lab 2\lab02_ex1\lab02_ex1\lab02_ex1.cpp(30,3): error C3688: invalid literal suffix 'fh'; literal operator or literal operator template 'operator ""fh' not found
+D:\Documents\Facultate\SSC\Structure-of-Computer-Systems-Labs\Lab 2\lab02_ex1\lab02_ex1\lab02_ex1.cpp(30,3): error C3688: invalid literal suffix 'h'; literal operator or literal operator template 'operator ""h' not found
+D:\Documents\Facultate\SSC\Structure-of-Computer-Systems-Labs\Lab 2\lab02_ex1\lab02_ex1\lab02_ex1.cpp(31,3): error C2146: syntax error: missing ';' before identifier 'mov'
+D:\Documents\Facultate\SSC\Structure-of-Computer-Systems-Labs\Lab 2\lab02_ex1\lab02_ex1\lab02_ex1.cpp(31,3): error C2065: 'mov': undeclared identifier
+D:\Documents\Facultate\SSC\Structure-of-Computer-Systems-Labs\Lab 2\lab02_ex1\lab02_ex1\lab02_ex1.cpp(31,7): error C2146: syntax error: missing ';' before identifier 'cycles_high1'
+D:\Documents\Facultate\SSC\Structure-of-Computer-Systems-Labs\Lab 2\lab02_ex1\lab02_ex1\lab02_ex1.cpp(31,7): error C1003: error count exceeds 100; stopping compilation
