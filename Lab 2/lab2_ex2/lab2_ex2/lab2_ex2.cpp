@@ -37,8 +37,39 @@ void print_array(unsigned a[], int n) {
 	printf("\n");
 }
 
+unsigned partition(unsigned a[], int left, int right) {
+	srand((unsigned)time(NULL));
+
+	int p = (int)((rand() % (right - left)) + left);
+	std::swap(a[p], a[right]);
+
+	int i = left - 1;
+	for (int k = left; k < right; k++) {
+		if (a[k] <= a[right]) {
+			i++;
+			std::swap(a[i], a[k]);
+		}
+	}
+
+	i++;
+	std::swap(a[i], a[right]);
+
+	return i;
+}
+
+void quick_sort(unsigned a[], int left, int right) {
+	if (left >= right) {
+		return;
+	}
+
+	unsigned q = partition(a, left, right);
+	quick_sort(a, left, q - 1);
+	quick_sort(a, q + 1, right);
+}
+
 void optimized_sort(unsigned a[], int n) {
 	// implement the sort optimized version of the sort function or a more efficien sort function
+	quick_sort(a, 0, n - 1);
 }
 
 int main() {
@@ -48,9 +79,11 @@ int main() {
 	unsigned __int64 temp_cycles1 = 0, temp_cycles2 = 0;
 	double avg_cycles = 0.0, avg_seconds = 0.0, total_seconds = 0.0;
 	__int64 total_cycles = 0;
-	int n = 100;
-	unsigned a1[100];
+	int n = 10000;
+	unsigned a1[10000];
 	unsigned* a2 = (unsigned*)malloc(n * sizeof(unsigned));
+
+	clock_t t_start = 0, t_finish = 0;
 
 	for (int i = 1; i <= RUNS; i++) {
 		// compute the CPUID overhead 
@@ -92,6 +125,8 @@ int main() {
 			popad
 		}
 
+		generate_random_array(a2, n);
+
 		// reset the values of cycles_high1 and cycles_low1
 		cycles_high1 = 0;
 		cycles_low1 = 0;
@@ -106,10 +141,8 @@ int main() {
 			popad
 		}
 
-		int t = clock();
-		sort(a1, n);
-		t = clock() - t;
-		std::cout << t;
+		//sort(a1, n);
+		optimized_sort(a2, n);
 		
 		// after measuring the execution time for both a1 and a2 using the sort function, do the same thiing for the optimized version of the sort function
 
@@ -137,6 +170,16 @@ int main() {
 	printf("Average seconds = %lf\n", avg_seconds);
 	printf("Cycles (last run) = %lld\n", total_cycles);
 	printf("Seconds (last run) = %lf\n", total_seconds);
+
+	/*generate_random_array(a2, n);
+	t_start = clock();
+	sort(a2, n);
+	t_finish = clock();
+	std::cout << t_finish - t_start << "\n";*/
+
+	/*generate_random_array(a1, n);
+	optimized_sort(a1, n);
+	print_array(a1, n);*/
 
 	return 0;
 }
