@@ -1,0 +1,8 @@
+semnalele se actualizeaza doar a finalul procesului:
+ex
+s, v sunt 4
+s <= s + 1
+if s == 5 then ... - nu intra
+
+v := v + 1
+if v == 5 then ... -intra

@@ -1,0 +1,5 @@
+componenta 
+test bench
+screenshot
+
+ex 3, 4, 5

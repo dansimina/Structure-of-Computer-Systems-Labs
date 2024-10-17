@@ -79,8 +79,8 @@ int main() {
 	unsigned __int64 temp_cycles1 = 0, temp_cycles2 = 0;
 	double avg_cycles = 0.0, avg_seconds = 0.0, total_seconds = 0.0;
 	__int64 total_cycles = 0;
-	int n = 100;
-	unsigned a1[100];
+	int n = 1000;
+	unsigned a1[1000];
 	unsigned* a2 = (unsigned*)malloc(n * sizeof(unsigned));
 
 	clock_t t_start = 0, t_finish = 0, t_total = 0;
@@ -127,7 +127,7 @@ int main() {
 		}
 
 		// generat array
-		generate_random_array(a2, n);
+		generate_random_array(a1, n);
 
 		// reset the values of cycles_high1 and cycles_low1
 		cycles_high1 = 0;
@@ -143,17 +143,17 @@ int main() {
 			popad
 		}
 
-		 sort(a2, n);
+		 //sort(a2, n);
 		// optimized_sort(a2, n);
 
-		/*t_start = clock();
+		t_start = clock();
 		
-		sort(a2, n);
+		sort(a1, n);
 		
 		t_finish = clock();
 
 		t_total = t_finish - t_start;
-		avg_clock_fct += t_total;*/
+		avg_clock_fct += t_total;
 		
 		// after measuring the execution time for both a1 and a2 using the sort function, do the same thiing for the optimized version of the sort function
 
