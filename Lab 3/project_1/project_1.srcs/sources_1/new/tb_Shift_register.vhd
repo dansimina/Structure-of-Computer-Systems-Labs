@@ -2,9 +2,9 @@
 -- Company: 
 -- Engineer: 
 -- 
--- Create Date: 10/17/2024 01:40:53 PM
+-- Create Date: 10/17/2024 10:17:30 PM
 -- Design Name: 
--- Module Name: tb_Register8 - Behavioral
+-- Module Name: tb_Shift_register - Behavioral
 -- Project Name: 
 -- Target Devices: 
 -- Tool Versions: 
@@ -31,30 +31,29 @@ use IEEE.STD_LOGIC_1164.ALL;
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
-entity tb_Register8 is
+entity tb_Shift_register is
 --  Port ( );
-end tb_Register8;
+end tb_Shift_register;
 
-architecture Behavioral of tb_Register8 is
-    component Register8 is
+architecture Behavioral of tb_Shift_register is
+
+component Shift_register is
     port (clk: in std_logic;
          ce: in std_logic;
-         d: in std_logic_vector (7 downto 0);
-         q: out std_logic_vector (7 downto 0));
-         
-    end component;
-    
-    constant T: time := 10ns;
-    signal clk, ce: std_logic := '0';
-    signal d, q: std_logic_vector (7 downto 0) := (others => '0');
-    
+         si: in std_logic;
+         so: out std_logic);
+end component;
+
+constant T: time := 10ns;
+signal clk, ce, si, so: std_logic := '0';
+
 begin
 
-    tb_Register8: Register8 port map (
+    tb_Shift_register: Shift_register port map(
         clk => clk,
         ce => ce,
-        d => d,
-        q => q
+        si => si,
+        so => so
     );
     
     process
@@ -67,26 +66,16 @@ begin
     
     process
     begin
+        si <= '1';
         ce <= '1';
-        d <= x"FF";
-        wait for 2 * T;
-        d <= x"0F";
-        wait for 2 * T;
+        wait for 4*T;
+        si <= '0';
+        wait for 2*T;
+        si <= '1';
+        wait for 6 * T;
         ce <= '0';
-        d <= x"F0";
-        wait for 2 * T;
-        d <= x"00";
-        wait for 2 * T;
-        d <= x"FF";
-        wait for 2 * T;
-        d <= x"0F";
         wait for 2 * T;
         ce <= '1';
-        d <= x"F0";
-        wait for 2 * T;
-        d <= x"00";
-        wait for 2 * T;
-        
         wait;
     end process;
     
