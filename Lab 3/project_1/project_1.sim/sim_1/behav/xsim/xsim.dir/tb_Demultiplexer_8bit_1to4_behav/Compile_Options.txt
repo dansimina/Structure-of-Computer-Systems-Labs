@@ -1,0 +1,1 @@
+--incr --debug "typical" --relax --mt "2" -L "xil_defaultlib" -L "secureip" --snapshot "tb_Demultiplexer_8bit_1to4_behav" "xil_defaultlib.tb_Demultiplexer_8bit_1to4" -log "elaborate.log" 
