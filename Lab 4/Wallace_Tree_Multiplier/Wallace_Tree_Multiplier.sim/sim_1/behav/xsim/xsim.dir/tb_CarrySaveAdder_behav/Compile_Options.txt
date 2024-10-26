@@ -1,0 +1,1 @@
+--incr --debug "typical" --relax --mt "2" -L "xil_defaultlib" -L "secureip" --snapshot "tb_CarrySaveAdder_behav" "xil_defaultlib.tb_CarrySaveAdder" -log "elaborate.log" 

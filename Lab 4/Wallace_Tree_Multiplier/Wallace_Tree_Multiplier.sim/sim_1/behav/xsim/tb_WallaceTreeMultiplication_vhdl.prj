@@ -1,0 +1,10 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../Wallace_Tree_Multiplier.srcs/sources_1/new/CarryLookaheadAdder.vhd" \
+"../../../../Wallace_Tree_Multiplier.srcs/sources_1/new/CarrySaveAdder.vhd" \
+"../../../../Wallace_Tree_Multiplier.srcs/sources_1/new/FullAdder.vhd" \
+"../../../../Wallace_Tree_Multiplier.srcs/sources_1/new/WallaceTreeMultiplication.vhd" \
+"../../../../Wallace_Tree_Multiplier.srcs/sources_1/new/tb_WallaceTreeMultiplication.vhd" \
+
+# Do not sort compile order
+nosort
