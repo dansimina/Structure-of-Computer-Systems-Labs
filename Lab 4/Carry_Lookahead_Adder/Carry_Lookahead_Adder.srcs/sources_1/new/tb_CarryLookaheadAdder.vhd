@@ -61,13 +61,64 @@ begin
 
     process
     begin
-        x <= "0011";
-        y <= "1100";
-        wait for 2 * T;
+        c_in <= '0';
+        x <= "0000";
+        y <= "0000";
+        wait for T * 2;
         
-        x <= "0101";
+        c_in <= '0';
+        x <= "0111";
+        y <= "0000";
+        wait for T * 2;
+        
+        c_in <= '0';
+        x <= "0000";
+        y <= "0101";
+        wait for T * 2;
+        
+        c_in <= '0';
+        x <= "1100";
         y <= "0011";
-        wait for 2 * T;
+        wait for T * 2;
+
+        c_in <= '1';
+        x <= "1010";
+        y <= "0110";
+        wait for T * 2;             
+        
+        c_in <= '1';
+        x <= "1000";
+        y <= "1000";
+        wait for T * 2;
+        
+        c_in <= '0';
+        x <= "1110";
+        y <= "0111";
+        wait for T * 2;
+        
+        c_in <= '0';
+        x <= "1111";
+        y <= "0001";
+        wait for T * 2;
+        
+        c_in <= '0';
+        x <= "0001";
+        y <= "1111";
+        wait for T * 2;
+        
+        x <= "0111";
+        y <= "0101";
+        wait for T * 2;
+        
+        c_in <= '0';
+        x <= "1111";
+        y <= "1111";
+        wait for T * 2;
+        
+        c_in <= '1';
+        x <= "1111";
+        y <= "1111";
+        wait for T * 2;
         
         wait;
     end process;
