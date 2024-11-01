@@ -40,4 +40,4 @@ EAStep()
      fi
 }
 
-EAStep vivado -log FIFO8x8.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source FIFO8x8.tcl
+EAStep vivado -log basys3_fifo8x8.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source basys3_fifo8x8.tcl

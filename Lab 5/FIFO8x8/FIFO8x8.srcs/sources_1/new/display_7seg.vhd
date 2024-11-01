@@ -23,6 +23,7 @@ begin
     process (clk)
     begin
         if rising_edge(clk) then
+--            cnt <= cnt + 16383;
             cnt <= cnt + 1;
         end if;
     end process;

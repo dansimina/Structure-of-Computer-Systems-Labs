@@ -109,6 +109,18 @@ begin
         
         rd <= '0';
         wr <= '1';
+        data_in <= x"FA";
+        wait for T;
+        
+        data_in <= x"FB";
+        wait for T;
+        
+        data_in <= x"FC";
+        wait for T;
+        
+        data_in <= x"FD";
+        wait for T;
+        
         data_in <= x"FE";
         wait for T;
         

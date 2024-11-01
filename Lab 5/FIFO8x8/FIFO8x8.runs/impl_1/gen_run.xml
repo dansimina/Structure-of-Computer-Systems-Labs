@@ -1,75 +1,87 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="impl_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1730374715">
-  <File Type="ROUTE-PWR" Name="FIFO8x8_power_routed.rpt"/>
-  <File Type="PA-TCL" Name="FIFO8x8.tcl"/>
-  <File Type="ROUTE-PWR-SUM" Name="FIFO8x8_power_summary_routed.pb"/>
-  <File Type="REPORTS-TCL" Name="FIFO8x8_reports.tcl"/>
-  <File Type="BITSTR-MSK" Name="FIFO8x8.msk"/>
-  <File Type="ROUTE-CLK" Name="FIFO8x8_clock_utilization_routed.rpt"/>
-  <File Type="RDI-RDI" Name="FIFO8x8.vdi"/>
-  <File Type="BG-BIT" Name="FIFO8x8.bit"/>
-  <File Type="BG-DRC" Name="FIFO8x8.drc"/>
-  <File Type="BG-BGN" Name="FIFO8x8.bgn"/>
-  <File Type="BG-BIN" Name="FIFO8x8.bin"/>
-  <File Type="BITSTR-RBT" Name="FIFO8x8.rbt"/>
-  <File Type="BITSTR-NKY" Name="FIFO8x8.nky"/>
-  <File Type="BITSTR-BMM" Name="FIFO8x8_bd.bmm"/>
-  <File Type="BITSTR-MMI" Name="FIFO8x8.mmi"/>
-  <File Type="ROUTE-METHODOLOGY-DRC" Name="FIFO8x8_methodology_drc_routed.rpt"/>
-  <File Type="BITSTR-SYSDEF" Name="FIFO8x8.sysdef"/>
-  <File Type="ROUTE-METHODOLOGY-DRC-PB" Name="FIFO8x8_methodology_drc_routed.pb"/>
+<GenRun Id="impl_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1730498575">
+  <File Type="ROUTE-PWR" Name="basys3_fifo8x8_power_routed.rpt"/>
+  <File Type="PA-TCL" Name="basys3_fifo8x8.tcl"/>
+  <File Type="BITSTR-MMI" Name="basys3_fifo8x8.mmi"/>
+  <File Type="OPT-METHODOLOGY-DRC" Name="basys3_fifo8x8_methodology_drc_opted.rpt"/>
+  <File Type="INIT-TIMING" Name="basys3_fifo8x8_timing_summary_init.rpt"/>
+  <File Type="ROUTE-PWR-SUM" Name="basys3_fifo8x8_power_summary_routed.pb"/>
+  <File Type="REPORTS-TCL" Name="basys3_fifo8x8_reports.tcl"/>
+  <File Type="OPT-TIMING" Name="basys3_fifo8x8_timing_summary_opted.rpt"/>
+  <File Type="OPT-DCP" Name="basys3_fifo8x8_opt.dcp"/>
+  <File Type="OPT-DRC" Name="basys3_fifo8x8_drc_opted.rpt"/>
+  <File Type="OPT-HWDEF" Name="basys3_fifo8x8.hwdef"/>
+  <File Type="PWROPT-DCP" Name="basys3_fifo8x8_pwropt.dcp"/>
+  <File Type="PWROPT-DRC" Name="basys3_fifo8x8_drc_pwropted.rpt"/>
+  <File Type="PWROPT-TIMING" Name="basys3_fifo8x8_timing_summary_pwropted.rpt"/>
+  <File Type="PLACE-DCP" Name="basys3_fifo8x8_placed.dcp"/>
+  <File Type="PLACE-IO" Name="basys3_fifo8x8_io_placed.rpt"/>
+  <File Type="PLACE-CLK" Name="basys3_fifo8x8_clock_utilization_placed.rpt"/>
+  <File Type="PLACE-UTIL" Name="basys3_fifo8x8_utilization_placed.rpt"/>
+  <File Type="PLACE-UTIL-PB" Name="basys3_fifo8x8_utilization_placed.pb"/>
+  <File Type="PLACE-CTRL" Name="basys3_fifo8x8_control_sets_placed.rpt"/>
+  <File Type="PLACE-SIMILARITY" Name="basys3_fifo8x8_incremental_reuse_placed.rpt"/>
+  <File Type="PLACE-PRE-SIMILARITY" Name="basys3_fifo8x8_incremental_reuse_pre_placed.rpt"/>
+  <File Type="BG-BIN" Name="basys3_fifo8x8.bin"/>
+  <File Type="PLACE-TIMING" Name="basys3_fifo8x8_timing_summary_placed.rpt"/>
+  <File Type="POSTPLACE-PWROPT-DCP" Name="basys3_fifo8x8_postplace_pwropt.dcp"/>
+  <File Type="BITSTR-MSK" Name="basys3_fifo8x8.msk"/>
+  <File Type="POSTPLACE-PWROPT-TIMING" Name="basys3_fifo8x8_timing_summary_postplace_pwropted.rpt"/>
+  <File Type="PHYSOPT-DCP" Name="basys3_fifo8x8_physopt.dcp"/>
+  <File Type="PHYSOPT-DRC" Name="basys3_fifo8x8_drc_physopted.rpt"/>
+  <File Type="BITSTR-RBT" Name="basys3_fifo8x8.rbt"/>
+  <File Type="PHYSOPT-TIMING" Name="basys3_fifo8x8_timing_summary_physopted.rpt"/>
+  <File Type="ROUTE-ERROR-DCP" Name="basys3_fifo8x8_routed_error.dcp"/>
+  <File Type="ROUTE-DCP" Name="basys3_fifo8x8_routed.dcp"/>
+  <File Type="ROUTE-BLACKBOX-DCP" Name="basys3_fifo8x8_routed_bb.dcp"/>
+  <File Type="ROUTE-DRC" Name="basys3_fifo8x8_drc_routed.rpt"/>
+  <File Type="ROUTE-DRC-PB" Name="basys3_fifo8x8_drc_routed.pb"/>
+  <File Type="ROUTE-DRC-RPX" Name="basys3_fifo8x8_drc_routed.rpx"/>
+  <File Type="ROUTE-METHODOLOGY-DRC" Name="basys3_fifo8x8_methodology_drc_routed.rpt"/>
+  <File Type="ROUTE-METHODOLOGY-DRC-RPX" Name="basys3_fifo8x8_methodology_drc_routed.rpx"/>
+  <File Type="ROUTE-METHODOLOGY-DRC-PB" Name="basys3_fifo8x8_methodology_drc_routed.pb"/>
+  <File Type="ROUTE-PWR-RPX" Name="basys3_fifo8x8_power_routed.rpx"/>
+  <File Type="ROUTE-STATUS" Name="basys3_fifo8x8_route_status.rpt"/>
+  <File Type="ROUTE-STATUS-PB" Name="basys3_fifo8x8_route_status.pb"/>
+  <File Type="ROUTE-TIMINGSUMMARY" Name="basys3_fifo8x8_timing_summary_routed.rpt"/>
+  <File Type="ROUTE-TIMING-PB" Name="basys3_fifo8x8_timing_summary_routed.pb"/>
+  <File Type="ROUTE-TIMING-RPX" Name="basys3_fifo8x8_timing_summary_routed.rpx"/>
+  <File Type="ROUTE-SIMILARITY" Name="basys3_fifo8x8_incremental_reuse_routed.rpt"/>
+  <File Type="ROUTE-CLK" Name="basys3_fifo8x8_clock_utilization_routed.rpt"/>
+  <File Type="ROUTE-BUS-SKEW" Name="basys3_fifo8x8_bus_skew_routed.rpt"/>
+  <File Type="ROUTE-BUS-SKEW-PB" Name="basys3_fifo8x8_bus_skew_routed.pb"/>
+  <File Type="ROUTE-BUS-SKEW-RPX" Name="basys3_fifo8x8_bus_skew_routed.rpx"/>
+  <File Type="POSTROUTE-PHYSOPT-DCP" Name="basys3_fifo8x8_postroute_physopt.dcp"/>
+  <File Type="POSTROUTE-PHYSOPT-BLACKBOX-DCP" Name="basys3_fifo8x8_postroute_physopt_bb.dcp"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING" Name="basys3_fifo8x8_timing_summary_postroute_physopted.rpt"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING-PB" Name="basys3_fifo8x8_timing_summary_postroute_physopted.pb"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING-RPX" Name="basys3_fifo8x8_timing_summary_postroute_physopted.rpx"/>
+  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW" Name="basys3_fifo8x8_bus_skew_postroute_physopted.rpt"/>
+  <File Type="BG-BIT" Name="basys3_fifo8x8.bit"/>
+  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-PB" Name="basys3_fifo8x8_bus_skew_postroute_physopted.pb"/>
+  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-RPX" Name="basys3_fifo8x8_bus_skew_postroute_physopted.rpx"/>
+  <File Type="BITSTR-NKY" Name="basys3_fifo8x8.nky"/>
+  <File Type="BITSTR-BMM" Name="basys3_fifo8x8_bd.bmm"/>
+  <File Type="PDI-FILE" Name="basys3_fifo8x8.pdi"/>
+  <File Type="RCFI_FILE" Name="basys3_fifo8x8.rcfi"/>
+  <File Type="CFI_FILE" Name="basys3_fifo8x8.cfi"/>
+  <File Type="RNPI_FILE" Name="basys3_fifo8x8.rnpi"/>
+  <File Type="NPI_FILE" Name="basys3_fifo8x8.npi"/>
+  <File Type="RBD_FILE" Name="basys3_fifo8x8.rbd"/>
   <File Type="BITSTR-LTX" Name="debug_nets.ltx"/>
-  <File Type="BITSTR-LTX" Name="FIFO8x8.ltx"/>
+  <File Type="BITSTR-LTX" Name="basys3_fifo8x8.ltx"/>
+  <File Type="BITSTR-SYSDEF" Name="basys3_fifo8x8.sysdef"/>
+  <File Type="BG-BGN" Name="basys3_fifo8x8.bgn"/>
+  <File Type="BG-DRC" Name="basys3_fifo8x8.drc"/>
+  <File Type="RDI-RDI" Name="basys3_fifo8x8.vdi"/>
   <File Type="WBT-USG" Name="usage_statistics_webtalk.html"/>
-  <File Type="OPT-DRC" Name="FIFO8x8_drc_opted.rpt"/>
-  <File Type="OPT-HWDEF" Name="FIFO8x8.hwdef"/>
-  <File Type="PLACE-IO" Name="FIFO8x8_io_placed.rpt"/>
-  <File Type="PLACE-UTIL" Name="FIFO8x8_utilization_placed.rpt"/>
-  <File Type="PLACE-UTIL-PB" Name="FIFO8x8_utilization_placed.pb"/>
-  <File Type="ROUTE-RQS" Name="FIFO8x8_routed.rqs"/>
-  <File Type="PLACE-CTRL" Name="FIFO8x8_control_sets_placed.rpt"/>
+  <File Type="ROUTE-RQS" Name="basys3_fifo8x8_routed.rqs"/>
+  <File Type="POSTROUTE-PHYSOPT-RQS" Name="basys3_fifo8x8_postroute_physopted.rqs"/>
   <File Type="ROUTE-RQS-RPT" Name="route_report_qor_suggestions_0.rpt"/>
-  <File Type="PLACE-PRE-SIMILARITY" Name="FIFO8x8_incremental_reuse_pre_placed.rpt"/>
   <File Type="POSTROUTE-PHYSOPT-RQS-RPT" Name="postroute_physopt_report_qor_suggestions_0.rpt"/>
-  <File Type="ROUTE-DRC" Name="FIFO8x8_drc_routed.rpt"/>
-  <File Type="ROUTE-DRC-PB" Name="FIFO8x8_drc_routed.pb"/>
-  <File Type="ROUTE-PWR-RPX" Name="FIFO8x8_power_routed.rpx"/>
-  <File Type="ROUTE-STATUS" Name="FIFO8x8_route_status.rpt"/>
-  <File Type="ROUTE-STATUS-PB" Name="FIFO8x8_route_status.pb"/>
-  <File Type="ROUTE-DCP" Name="FIFO8x8_routed.dcp"/>
-  <File Type="ROUTE-ERROR-DCP" Name="FIFO8x8_routed_error.dcp"/>
-  <File Type="ROUTE-BLACKBOX-DCP" Name="FIFO8x8_routed_bb.dcp"/>
-  <File Type="ROUTE-TIMINGSUMMARY" Name="FIFO8x8_timing_summary_routed.rpt"/>
-  <File Type="ROUTE-TIMING-PB" Name="FIFO8x8_timing_summary_routed.pb"/>
-  <File Type="ROUTE-TIMING-RPX" Name="FIFO8x8_timing_summary_routed.rpx"/>
-  <File Type="ROUTE-BUS-SKEW" Name="FIFO8x8_bus_skew_routed.rpt"/>
-  <File Type="ROUTE-BUS-SKEW-PB" Name="FIFO8x8_bus_skew_routed.pb"/>
-  <File Type="ROUTE-BUS-SKEW-RPX" Name="FIFO8x8_bus_skew_routed.rpx"/>
-  <File Type="OPT-DCP" Name="FIFO8x8_opt.dcp"/>
-  <File Type="PLACE-DCP" Name="FIFO8x8_placed.dcp"/>
-  <File Type="PWROPT-DCP" Name="FIFO8x8_pwropt.dcp"/>
-  <File Type="POSTPLACE-PWROPT-DCP" Name="FIFO8x8_postplace_pwropt.dcp"/>
-  <File Type="PHYSOPT-DCP" Name="FIFO8x8_physopt.dcp"/>
-  <File Type="POSTROUTE-PHYSOPT-DCP" Name="FIFO8x8_postroute_physopt.dcp"/>
-  <File Type="POSTROUTE-PHYSOPT-BLACKBOX-DCP" Name="FIFO8x8_postroute_physopt_bb.dcp"/>
-  <File Type="ROUTE-DRC-RPX" Name="FIFO8x8_drc_routed.rpx"/>
-  <File Type="ROUTE-METHODOLOGY-DRC-RPX" Name="FIFO8x8_methodology_drc_routed.rpx"/>
-  <File Type="PDI-FILE" Name="FIFO8x8.pdi"/>
-  <File Type="RCFI_FILE" Name="FIFO8x8.rcfi"/>
-  <File Type="CFI_FILE" Name="FIFO8x8.cfi"/>
-  <File Type="RNPI_FILE" Name="FIFO8x8.rnpi"/>
-  <File Type="NPI_FILE" Name="FIFO8x8.npi"/>
-  <File Type="RBD_FILE" Name="FIFO8x8.rbd"/>
-  <File Type="POSTROUTE-PHYSOPT-RQS" Name="FIFO8x8_postroute_physopted.rqs"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
     <Filter Type="Srcs"/>
     <File Path="$PSRCDIR/sources_1/new/Decoder.vhd">
-      <FileInfo>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PSRCDIR/sources_1/new/Multiplexer.vhd">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -81,30 +93,33 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PSRCDIR/sources_1/new/basys3_fifo8x8.vhd">
+    <File Path="$PSRCDIR/sources_1/new/Multiplexer.vhd">
       <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PSRCDIR/sources_1/new/display_7seg.vhd">
-      <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
     <File Path="$PSRCDIR/sources_1/new/debouncer.vhd">
       <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/display_7seg.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/basys3_fifo8x8.vhd">
+      <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
     <Config>
       <Option Name="DesignMode" Val="RTL"/>
-      <Option Name="TopModule" Val="FIFO8x8"/>
+      <Option Name="TopModule" Val="basys3_fifo8x8"/>
       <Option Name="TopAutoSet" Val="TRUE"/>
     </Config>
   </FileSet>
@@ -122,6 +137,14 @@
   </FileSet>
   <FileSet Name="utils" Type="Utils" RelSrcDir="$PSRCDIR/utils_1">
     <Filter Type="Utils"/>
+    <File Path="$PSRCDIR/utils_1/imports/synth_1/FIFO8x8.dcp">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedInSteps" Val="synth_1"/>
+        <Attr Name="AutoDcp" Val="1"/>
+      </FileInfo>
+    </File>
     <Config>
       <Option Name="TopAutoSet" Val="TRUE"/>
     </Config>
@@ -137,6 +160,5 @@
     <Step Id="route_design"/>
     <Step Id="post_route_phys_opt_design"/>
     <Step Id="write_bitstream"/>
-    <Step Id="write_device_image"/>
   </Strategy>
 </GenRun>
