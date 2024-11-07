@@ -125,6 +125,9 @@ begin
         wait for T;
         
         rd <= '1';
+        wait for T * 10;
+        
+        rst <= '1';
         
         wait;
         

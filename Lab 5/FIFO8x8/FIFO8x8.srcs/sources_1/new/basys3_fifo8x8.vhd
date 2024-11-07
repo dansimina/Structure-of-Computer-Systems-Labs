@@ -90,8 +90,8 @@ begin
     connectFIFO: FIFO8x8 port map (
         clk => clk,
         rst => btn(0),
-        rd => en1,
-        wr => en2,
+        rd => en1, --btn(1),
+        wr => en2,--btn(2),
         data_in => sw(7 downto 0),
         data_out => data,
         empty => led(0),

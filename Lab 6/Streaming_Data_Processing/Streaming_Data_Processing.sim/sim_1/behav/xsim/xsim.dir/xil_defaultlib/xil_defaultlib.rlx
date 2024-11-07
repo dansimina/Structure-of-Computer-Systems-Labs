@@ -1,0 +1,11 @@
+0.7
+2020.2
+Oct 14 2022
+05:20:55
+D:/Documents/Facultate/SSC/Structure-of-Computer-Systems-Labs/Lab 6/Streaming_Data_Processing/Streaming_Data_Processing.gen/sources_1/ip/absolut_value/sim/absolut_value.v,1730978232,verilog,,D:/Documents/Facultate/SSC/Structure-of-Computer-Systems-Labs/Lab 6/Streaming_Data_Processing/Streaming_Data_Processing.gen/sources_1/ip/fp_subtractor/sim/fp_subtractor.v,,absolut_value,,,../../../../Streaming_Data_Processing.ip_user_files/ipstatic/hdl,,,,,
+D:/Documents/Facultate/SSC/Structure-of-Computer-Systems-Labs/Lab 6/Streaming_Data_Processing/Streaming_Data_Processing.gen/sources_1/ip/fifo32x64/sim/fifo32x64.v,1730975515,verilog,,D:/Documents/Facultate/SSC/Structure-of-Computer-Systems-Labs/Lab 6/Streaming_Data_Processing/Streaming_Data_Processing.gen/sources_1/ip/square_root/sim/square_root.v,,fifo32x64,,,../../../../Streaming_Data_Processing.ip_user_files/ipstatic/hdl,,,,,
+D:/Documents/Facultate/SSC/Structure-of-Computer-Systems-Labs/Lab 6/Streaming_Data_Processing/Streaming_Data_Processing.gen/sources_1/ip/fp_subtractor/sim/fp_subtractor.v,1730976436,verilog,,,,fp_subtractor,,,../../../../Streaming_Data_Processing.ip_user_files/ipstatic/hdl,,,,,
+D:/Documents/Facultate/SSC/Structure-of-Computer-Systems-Labs/Lab 6/Streaming_Data_Processing/Streaming_Data_Processing.gen/sources_1/ip/square_root/sim/square_root.v,1730978276,verilog,,D:/Documents/Facultate/SSC/Structure-of-Computer-Systems-Labs/Lab 6/Streaming_Data_Processing/Streaming_Data_Processing.gen/sources_1/ip/absolut_value/sim/absolut_value.v,,square_root,,,../../../../Streaming_Data_Processing.ip_user_files/ipstatic/hdl,,,,,
+D:/Documents/Facultate/SSC/Structure-of-Computer-Systems-Labs/Lab 6/Streaming_Data_Processing/Streaming_Data_Processing.sim/sim_1/behav/xsim/glbl.v,1665704903,verilog,,,,glbl,,,,,,,,
+D:/Documents/Facultate/SSC/Structure-of-Computer-Systems-Labs/Lab 6/temperature_subtractor.vhd,1730979357,vhdl,,,,temperature_subtractor,,,,,,,,
+D:/Documents/Facultate/SSC/Structure-of-Computer-Systems-Labs/Lab 6/testbench_stimulus_file.vhd,1730976759,vhdl,,,,testbench_stimulus_file,,,,,,,,

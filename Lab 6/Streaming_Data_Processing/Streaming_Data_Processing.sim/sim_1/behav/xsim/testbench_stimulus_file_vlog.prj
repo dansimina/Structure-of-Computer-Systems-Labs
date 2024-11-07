@@ -1,0 +1,12 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  --include "../../../../Streaming_Data_Processing.ip_user_files/ipstatic/hdl" \
+"../../../../Streaming_Data_Processing.gen/sources_1/ip/fifo32x64/sim/fifo32x64.v" \
+"../../../../Streaming_Data_Processing.gen/sources_1/ip/square_root/sim/square_root.v" \
+"../../../../Streaming_Data_Processing.gen/sources_1/ip/absolut_value/sim/absolut_value.v" \
+"../../../../Streaming_Data_Processing.gen/sources_1/ip/fp_subtractor/sim/fp_subtractor.v" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

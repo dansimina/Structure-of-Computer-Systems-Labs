@@ -1,0 +1,7 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../../temperature_subtractor.vhd" \
+"../../../../../testbench_stimulus_file.vhd" \
+
+# Do not sort compile order
+nosort

@@ -2,10 +2,11 @@
 2020.2
 Oct 14 2022
 05:20:55
-D:/Documents/Facultate/SSC/Structure-of-Computer-Systems-Labs/Lab 5/FIFO8x8/FIFO8x8.srcs/sim_1/new/tb_FIFO8x8.vhd,1730495317,vhdl,,,,tb_fifo8x8,,,,,,,,
+D:/Documents/Facultate/SSC/Structure-of-Computer-Systems-Labs/Lab 5/FIFO8x8/FIFO8x8.srcs/sim_1/new/tb_FIFO8x8.vhd,1730583237,vhdl,,,,tb_fifo8x8,,,,,,,,
 D:/Documents/Facultate/SSC/Structure-of-Computer-Systems-Labs/Lab 5/FIFO8x8/FIFO8x8.srcs/sim_1/new/tb_basys3_fifo8x8.vhd,1730498186,vhdl,,,,tb_basys3_fifo8x8,,,,,,,,
 D:/Documents/Facultate/SSC/Structure-of-Computer-Systems-Labs/Lab 5/FIFO8x8/FIFO8x8.srcs/sources_1/new/Decoder.vhd,1730371659,vhdl,,,,decoder,,,,,,,,
 D:/Documents/Facultate/SSC/Structure-of-Computer-Systems-Labs/Lab 5/FIFO8x8/FIFO8x8.srcs/sources_1/new/FIFO8x8.vhd,1730462374,vhdl,,,,fifo8x8,,,,,,,,
 D:/Documents/Facultate/SSC/Structure-of-Computer-Systems-Labs/Lab 5/FIFO8x8/FIFO8x8.srcs/sources_1/new/Multiplexer.vhd,1730374614,vhdl,,,,multiplexer,,,,,,,,
-D:/Documents/Facultate/SSC/Structure-of-Computer-Systems-Labs/Lab 5/FIFO8x8/FIFO8x8.srcs/sources_1/new/basys3_fifo8x8.vhd,1730496311,vhdl,,,,basys3_fifo8x8,,,,,,,,
-D:/Documents/Facultate/SSC/Structure-of-Computer-Systems-Labs/Lab 5/FIFO8x8/FIFO8x8.srcs/sources_1/new/display_7seg.vhd,1730498063,vhdl,,,,display_7seg,,,,,,,,
+D:/Documents/Facultate/SSC/Structure-of-Computer-Systems-Labs/Lab 5/FIFO8x8/FIFO8x8.srcs/sources_1/new/basys3_fifo8x8.vhd,1730582659,vhdl,,,,basys3_fifo8x8,,,,,,,,
+D:/Documents/Facultate/SSC/Structure-of-Computer-Systems-Labs/Lab 5/FIFO8x8/FIFO8x8.srcs/sources_1/new/debouncer.vhd,1730321147,vhdl,,,,debouncer,,,,,,,,
+D:/Documents/Facultate/SSC/Structure-of-Computer-Systems-Labs/Lab 5/FIFO8x8/FIFO8x8.srcs/sources_1/new/display_7seg.vhd,1730582232,vhdl,,,,display_7seg,,,,,,,,
