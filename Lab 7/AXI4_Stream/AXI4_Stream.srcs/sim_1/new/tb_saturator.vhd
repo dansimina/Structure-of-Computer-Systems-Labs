@@ -2,9 +2,9 @@
 -- Company: 
 -- Engineer: 
 -- 
--- Create Date: 11/14/2024 01:29:22 PM
+-- Create Date: 11/16/2024 11:33:07 PM
 -- Design Name: 
--- Module Name: tb_module - Behavioral
+-- Module Name: tb_saturator - Behavioral
 -- Project Name: 
 -- Target Devices: 
 -- Tool Versions: 
@@ -32,13 +32,13 @@ use IEEE.numeric_std.ALL;
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
-entity tb_module is
+entity tb_saturator is
 --  Port ( );
-end tb_module;
+end tb_saturator;
 
-architecture Behavioral of tb_module is
+architecture Behavioral of tb_saturator is
 
-component module is
+component saturator is
     Port (
         aclk : IN STD_LOGIC;
         s_axis_val_tvalid : IN STD_LOGIC;
@@ -50,9 +50,9 @@ component module is
         s_axis_min_tvalid : IN STD_LOGIC;
         s_axis_min_tready : OUT STD_LOGIC;
         s_axis_min_tdata : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
-        m_axis_sum_tvalid : OUT STD_LOGIC;
-        m_axis_sum_tready : IN STD_LOGIC;
-        m_axis_sum_tdata : OUT STD_LOGIC_VECTOR(31 DOWNTO 0)
+        m_axis_result_tvalid : OUT STD_LOGIC;
+        m_axis_result_tready : IN STD_LOGIC;
+        m_axis_result_tdata : OUT STD_LOGIC_VECTOR(31 DOWNTO 0)
     );
 end component;
 
@@ -66,15 +66,15 @@ signal s_axis_max_tdata : STD_LOGIC_VECTOR(31 DOWNTO 0) := x"00000000";
 signal s_axis_min_tvalid : STD_LOGIC := '0';
 signal s_axis_min_tready : STD_LOGIC := '0';
 signal s_axis_min_tdata : STD_LOGIC_VECTOR(31 DOWNTO 0) := x"00000000";
-signal m_axis_sum_tvalid : STD_LOGIC := '0';
-signal m_axis_sum_tready : STD_LOGIC := '0';
-signal m_axis_sum_tdata : STD_LOGIC_VECTOR(31 DOWNTO 0) := x"00000000";
+signal m_axis_result_tvalid : STD_LOGIC := '0';
+signal m_axis_result_tready : STD_LOGIC := '0';
+signal m_axis_result_tdata : STD_LOGIC_VECTOR(31 DOWNTO 0) := x"00000000";
 
 constant T : TIME := 10ns;
 
 begin
 
-    module_et: module port map(
+    tb_saturator: saturator port map (
         aclk => aclk,
         s_axis_val_tvalid => s_axis_val_tvalid,
         s_axis_val_tready => s_axis_val_tready,
@@ -85,9 +85,9 @@ begin
         s_axis_min_tvalid => s_axis_min_tvalid,
         s_axis_min_tready => s_axis_min_tready,
         s_axis_min_tdata => s_axis_min_tdata,
-        m_axis_sum_tvalid => m_axis_sum_tvalid,
-        m_axis_sum_tready => m_axis_sum_tready,
-        m_axis_sum_tdata => m_axis_sum_tdata
+        m_axis_result_tvalid => m_axis_result_tvalid,
+        m_axis_result_tready => m_axis_result_tready,
+        m_axis_result_tdata => m_axis_result_tdata
     );
     
     process
@@ -108,7 +108,7 @@ begin
         s_axis_max_tdata <= std_logic_vector (TO_UNSIGNED (20, 32));
         s_axis_min_tdata <= std_logic_vector (TO_UNSIGNED (5, 32));
         
-        m_axis_sum_tready <= '1';
+        m_axis_result_tready <= '1';
         
         wait for 2 * T;
         
