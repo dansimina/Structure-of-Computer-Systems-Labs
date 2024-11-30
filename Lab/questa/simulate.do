@@ -1,7 +1,7 @@
 onbreak {quit -f}
 onerror {quit -f}
 
-vsim  -lib xil_defaultlib testbench_stimulus_file_opt
+vsim  -lib xil_defaultlib tb_threshold_exceeding_comparator_opt
 
 set NumericStdNoWarnings 1
 set StdArithNoWarnings 1
@@ -12,7 +12,7 @@ view wave
 view structure
 view signals
 
-do {testbench_stimulus_file.udo}
+do {tb_threshold_exceeding_comparator.udo}
 
 run 1000ns
 

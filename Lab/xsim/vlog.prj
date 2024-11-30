@@ -1,22 +1,5 @@
-sv xpm --include "../../Lab 6/Streaming_Data_Processing/Streaming_Data_Processing.gen/sources_1/ip/axis_data_fifo_0/hdl" --include "../../Lab 6/Streaming_Data_Processing/Streaming_Data_Processing.gen/sources_1/ip/fifo32x64/hdl" \
+sv xpm --include "../../Lab 8_9/Anomaly_Detection_in_Sensor_Data/Anomaly_Detection_in_Sensor_Data.gen/sources_1/ip/fifo/hdl" --include "../../Lab 8_9/Anomaly_Detection_in_Sensor_Data/Anomaly_Detection_in_Sensor_Data.gen/sources_1/ip/broadcaster/hdl" \
 "D:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv" \
-"D:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv" \
-"D:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv" \
-
-verilog axis_infrastructure_v1_1_0 --include "../../Lab 6/Streaming_Data_Processing/Streaming_Data_Processing.gen/sources_1/ip/axis_data_fifo_0/hdl" --include "../../Lab 6/Streaming_Data_Processing/Streaming_Data_Processing.gen/sources_1/ip/fifo32x64/hdl" \
-"../hdl/axis_infrastructure_v1_1_vl_rfs.v" \
-
-verilog axis_data_fifo_v2_0_9 --include "../../Lab 6/Streaming_Data_Processing/Streaming_Data_Processing.gen/sources_1/ip/axis_data_fifo_0/hdl" --include "../../Lab 6/Streaming_Data_Processing/Streaming_Data_Processing.gen/sources_1/ip/fifo32x64/hdl" \
-"../hdl/axis_data_fifo_v2_0_vl_rfs.v" \
-
-verilog xil_defaultlib --include "../../Lab 6/Streaming_Data_Processing/Streaming_Data_Processing.gen/sources_1/ip/axis_data_fifo_0/hdl" --include "../../Lab 6/Streaming_Data_Processing/Streaming_Data_Processing.gen/sources_1/ip/fifo32x64/hdl" \
-"../../Lab 6/Streaming_Data_Processing/Streaming_Data_Processing.gen/sources_1/ip/fifo32x64/sim/fifo32x64.v" \
-
-verilog floating_point_v7_1_15 --include "../../Lab 6/Streaming_Data_Processing/Streaming_Data_Processing.gen/sources_1/ip/axis_data_fifo_0/hdl" --include "../../Lab 6/Streaming_Data_Processing/Streaming_Data_Processing.gen/sources_1/ip/fifo32x64/hdl" \
-"../hdl/floating_point_v7_1_rfs.v" \
-
-verilog xil_defaultlib --include "../../Lab 6/Streaming_Data_Processing/Streaming_Data_Processing.gen/sources_1/ip/axis_data_fifo_0/hdl" --include "../../Lab 6/Streaming_Data_Processing/Streaming_Data_Processing.gen/sources_1/ip/fifo32x64/hdl" \
-"../../Lab 6/Streaming_Data_Processing/Streaming_Data_Processing.gen/sources_1/ip/fp_subtractor/sim/fp_subtractor.v" \
 
 verilog xil_defaultlib "glbl.v"
 
