@@ -59,7 +59,7 @@ end threshold_exceeding_comparator;
 architecture Behavioral of threshold_exceeding_comparator is
 
 type state_type is (S_READ, S_WRITE);
-signal state : state_type := S_READ;
+signal state : state_type := S_WRITE;
 
 signal res_valid : STD_LOGIC := '0';
 signal result : STD_LOGIC := '0';

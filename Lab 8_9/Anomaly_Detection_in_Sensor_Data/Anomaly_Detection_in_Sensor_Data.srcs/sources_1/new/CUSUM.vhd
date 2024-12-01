@@ -49,7 +49,8 @@ entity CUSUM is
          s_axis_threshold_tdata : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
          m_axis_label_tvalid : OUT STD_LOGIC;
          m_axis_label_tready : IN STD_LOGIC;
-         m_axis_label_tdata : OUT STD_LOGIC     
+         m_axis_label_tdata : OUT STD_LOGIC;  
+         aux : OUT STD_LOGIC_VECTOR(31 DOWNTO 0)
     );
 end CUSUM;
 
@@ -140,17 +141,17 @@ END COMPONENT;
 COMPONENT broadcaster
   PORT (
     aclk : IN STD_LOGIC;
-    aresetn : IN STD_LOGIC;
     s_axis_tvalid : IN STD_LOGIC;
     s_axis_tready : OUT STD_LOGIC;
     s_axis_tdata : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
-    m_axis_tvalid : OUT STD_LOGIC_VECTOR(1 DOWNTO 0);
-    m_axis_tready : IN STD_LOGIC_VECTOR(1 DOWNTO 0);
-    m_axis_tdata : OUT STD_LOGIC_VECTOR(63 DOWNTO 0) 
+    m_axis1_tvalid : OUT STD_LOGIC;
+    m_axis1_tready : IN STD_LOGIC;
+    m_axis1_tdata : OUT STD_LOGIC_VECTOR(31 DOWNTO 0); 
+    m_axis2_tvalid : OUT STD_LOGIC;
+    m_axis2_tready : IN STD_LOGIC;
+    m_axis2_tdata : OUT STD_LOGIC_VECTOR(31 DOWNTO 0)
   );
 END COMPONENT;
-
-
 
 
 --adder
@@ -234,9 +235,12 @@ signal m_axis_resultMAX2_tdata : STD_LOGIC_VECTOR(31 DOWNTO 0) := x"00000000";
 signal s_axisBroadcaster_tvalid : STD_LOGIC := '0';
 signal s_axisBroadcaster_tready : STD_LOGIC := '0';
 signal s_axisBroadcaster_tdata : STD_LOGIC_VECTOR(31 DOWNTO 0) := (others => '0');
-signal m_axisBroadcaster_tvalid : STD_LOGIC_VECTOR(1 DOWNTO 0) := (others => '0');
-signal m_axisBroadcaster_tready : STD_LOGIC_VECTOR(1 DOWNTO 0) := (others => '0');
-signal m_axisBroadcaster_tdata : STD_LOGIC_VECTOR(63 DOWNTO 0) := (others => '0');
+signal m_axisBroadcaster1_tvalid : STD_LOGIC := '0';
+signal m_axisBroadcaster1_tready : STD_LOGIC := '0';
+signal m_axisBroadcaster1_tdata : STD_LOGIC_VECTOR(31 DOWNTO 0) := (others => '0');
+signal m_axisBroadcaster2_tvalid : STD_LOGIC := '0';
+signal m_axisBroadcaster2_tready : STD_LOGIC := '0';
+signal m_axisBroadcaster2_tdata : STD_LOGIC_VECTOR(31 DOWNTO 0) := (others => '0');
 
 --threshold exceeding comparator
 signal s_axis_gtp_tvalid : STD_LOGIC := '0';
@@ -260,7 +264,7 @@ signal m_axis_result_tdata : STD_LOGIC  := '0';
 
 begin
 
-fifo0 : fifo
+fifo1 : fifo
       PORT MAP (
         s_axis_aresetn => aresetn,
         s_axis_aclk => aclk,
@@ -272,7 +276,7 @@ fifo0 : fifo
         m_axis_tdata => s_axis_aSUB1_tdata
       );
 
-fifo1 : fifo
+fifo2 : fifo
       PORT MAP (
         s_axis_aresetn => aresetn,
         s_axis_aclk => aclk,
@@ -294,7 +298,7 @@ subtractor1 : subtractor
         s_axis_b_tready => s_axis_bSUB1_tready,
         s_axis_b_tdata => s_axis_bSUB1_tdata,
         m_axis_result_tvalid => m_axis_resultSUB1_tvalid,
-        m_axis_result_tready => m_axis_resultSUB1_tready,
+        m_axis_result_tready =>  m_axis_resultSUB1_tready,
         m_axis_result_tdata => m_axis_resultSUB1_tdata
     );
 
@@ -313,13 +317,15 @@ fifo3 : fifo
 broadcaster1 : broadcaster
       PORT MAP (
         aclk => aclk,
-        aresetn => aresetn,
         s_axis_tvalid => s_axisBroadcaster_tvalid,
         s_axis_tready => s_axisBroadcaster_tready,
         s_axis_tdata => s_axisBroadcaster_tdata,
-        m_axis_tvalid => m_axisBroadcaster_tvalid,
-        m_axis_tready => m_axisBroadcaster_tready,
-        m_axis_tdata => m_axisBroadcaster_tdata
+        m_axis1_tvalid => m_axisBroadcaster1_tvalid,
+        m_axis1_tready => m_axisBroadcaster1_tready,
+        m_axis1_tdata => m_axisBroadcaster1_tdata,
+        m_axis2_tvalid => m_axisBroadcaster2_tvalid,
+        m_axis2_tready => m_axisBroadcaster2_tready,
+        m_axis2_tdata => m_axisBroadcaster2_tdata
       );
   
 adder1 : adder 
@@ -328,9 +334,9 @@ adder1 : adder
         s_axis_a_tvalid => s_axis_aADD_tvalid,
         s_axis_a_tready => s_axis_aADD_tready,
         s_axis_a_tdata => s_axis_aADD_tdata,
-        s_axis_b_tvalid =>  m_axisBroadcaster_tvalid(0),
-        s_axis_b_tready =>  m_axisBroadcaster_tready(0),
-        s_axis_b_tdata =>  m_axisBroadcaster_tdata(31 downto 0),
+        s_axis_b_tvalid =>  m_axisBroadcaster1_tvalid,
+        s_axis_b_tready =>  m_axisBroadcaster1_tready,
+        s_axis_b_tdata =>  m_axisBroadcaster1_tdata,
         m_axis_result_tvalid => m_axis_resultADD_tvalid,
         m_axis_result_tready => m_axis_resultADD_tready,
         m_axis_result_tdata => m_axis_resultADD_tdata
@@ -339,9 +345,9 @@ adder1 : adder
 subtractor2 : subtractor 
     PORT MAP (
         aclk => aclk,
-        s_axis_a_tvalid => m_axisBroadcaster_tvalid(1),
-        s_axis_a_tready => m_axisBroadcaster_tready(1),
-        s_axis_a_tdata => m_axisBroadcaster_tdata(63 downto 32),
+        s_axis_a_tvalid => m_axisBroadcaster2_tvalid,
+        s_axis_a_tready => m_axisBroadcaster2_tready,
+        s_axis_a_tdata => m_axisBroadcaster2_tdata,
         s_axis_b_tvalid => s_axis_bSUB2_tvalid,
         s_axis_b_tready => s_axis_bSUB2_tready,
         s_axis_b_tdata => s_axis_bSUB2_tdata,
@@ -476,7 +482,7 @@ fifo9 : fifo
         m_axis_tdata => s_axis_gtm_tdata
       );
       
-threshold_exceeding_comparator0 : threshold_exceeding_comparator port map(
+threshold_exceeding_comparator1 : threshold_exceeding_comparator port map(
         aclk => aclk,
         s_axis_gtp_tvalid => s_axis_gtp_tvalid,
         s_axis_gtp_tready => s_axis_gtp_tready,
@@ -497,6 +503,8 @@ threshold_exceeding_comparator0 : threshold_exceeding_comparator port map(
         m_axis_result_tready => m_axis_label_tready,
         m_axis_result_tdata => m_axis_label_tdata
     );
+    
+    aux <= m_axisBroadcaster2_tdata;
     
 fifo10 : fifo
       PORT MAP (

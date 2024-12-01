@@ -1,0 +1,12 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../Anomaly_Detection_in_Sensor_Data.srcs/sources_1/new/CUSUM.vhd" \
+"../../../../Anomaly_Detection_in_Sensor_Data.srcs/sources_1/new/adder.vhd" \
+"../../../../Anomaly_Detection_in_Sensor_Data.srcs/sources_1/new/broadcaster.vhd" \
+"../../../../Anomaly_Detection_in_Sensor_Data.srcs/sources_1/new/max.vhd" \
+"../../../../Anomaly_Detection_in_Sensor_Data.srcs/sources_1/new/subtractor.vhd" \
+"../../../../Anomaly_Detection_in_Sensor_Data.srcs/sources_1/new/threshold_exceeding_comparator.vhd" \
+"../../../../Anomaly_Detection_in_Sensor_Data.srcs/sim_1/new/tb_CUSUM.vhd" \
+
+# Do not sort compile order
+nosort

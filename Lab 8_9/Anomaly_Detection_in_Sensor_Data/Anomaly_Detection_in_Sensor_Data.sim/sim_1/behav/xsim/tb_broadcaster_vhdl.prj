@@ -1,6 +1,0 @@
-# compile vhdl design source files
-vhdl xil_defaultlib  \
-"../../../../Anomaly_Detection_in_Sensor_Data.srcs/sim_1/new/tb_broadcaster.vhd" \
-
-# Do not sort compile order
-nosort

@@ -21,6 +21,7 @@
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.numeric_std.ALL;
 
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
@@ -55,7 +56,8 @@ component CUSUM is
          s_axis_threshold_tdata : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
          m_axis_label_tvalid : OUT STD_LOGIC;
          m_axis_label_tready : IN STD_LOGIC;
-         m_axis_label_tdata : OUT STD_LOGIC     
+         m_axis_label_tdata : OUT STD_LOGIC;
+         aux : OUT STD_LOGIC_VECTOR(31 DOWNTO 0)    
     );
 end component;
 
@@ -76,8 +78,9 @@ signal s_axis_threshold_tdata : STD_LOGIC_VECTOR(31 DOWNTO 0) := (others => '0')
 signal m_axis_label_tvalid : STD_LOGIC := '0';
 signal m_axis_label_tready : STD_LOGIC := '0';
 signal m_axis_label_tdata : STD_LOGIC := '0';
+signal aux : STD_LOGIC_VECTOR(31 DOWNTO 0) := (others => '0');
 
-constant T : TIME := 10ns;
+constant T : TIME := 5ns;
 
 begin
 
@@ -98,15 +101,52 @@ tb_CUSUM: CUSUM port map (
     s_axis_threshold_tdata => s_axis_threshold_tdata,
     m_axis_label_tvalid => m_axis_label_tvalid,
     m_axis_label_tready => m_axis_label_tready,
-    m_axis_label_tdata => m_axis_label_tdata
+    m_axis_label_tdata => m_axis_label_tdata,
+    aux => aux
 );
+
+aclk <= not aclk after T / 2;
+aresetn <= '0', '1' after T * 2;
 
 process
 begin
-    aclk <= '1';
-    wait for T / 2;
-    aclk <= '0';
-    wait for T / 2;
+    
+    s_axis_currentX_tvalid <= '1';
+    s_axis_previousX_tvalid <= '1';
+    s_axis_drift_tvalid <= '1';
+    s_axis_threshold_tvalid <= '1';
+    m_axis_label_tready <= '1';
+    
+    s_axis_drift_tdata <= std_logic_vector (TO_UNSIGNED (5, 32));
+    s_axis_threshold_tdata <= std_logic_vector (TO_UNSIGNED (10, 32));
+    
+    WHILE s_axis_currentX_tready = '0' or s_axis_previousX_tready = '0' LOOP
+            WAIT FOR T;
+        END LOOP;
+    wait for T * 2;
+    
+    s_axis_currentX_tdata <= std_logic_vector (TO_UNSIGNED (40, 32));
+    s_axis_previousX_tdata <= std_logic_vector (TO_UNSIGNED (5, 32));
+    
+    WHILE s_axis_currentX_tready = '0' or s_axis_previousX_tready = '0' LOOP
+            WAIT FOR T;
+        END LOOP;
+    wait for T * 2;
+    
+    s_axis_currentX_tdata <= std_logic_vector (TO_UNSIGNED (29, 32));
+    s_axis_previousX_tdata <= std_logic_vector (TO_UNSIGNED (10, 32));
+    wait for T * 2;
+    
+    WHILE s_axis_currentX_tready = '0' or s_axis_previousX_tready = '0' LOOP
+            WAIT FOR T;
+        END LOOP;
+    wait for T * 2;
+    
+    s_axis_currentX_tdata <= std_logic_vector (TO_UNSIGNED (15, 32));
+    s_axis_previousX_tdata <= std_logic_vector (TO_UNSIGNED (10, 32));
+    wait for T * 2;
+    
+    wait;
 end process;
 
 end Behavioral;
