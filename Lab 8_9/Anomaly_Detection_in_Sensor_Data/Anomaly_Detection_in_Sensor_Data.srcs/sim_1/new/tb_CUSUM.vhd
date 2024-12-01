@@ -80,7 +80,6 @@ signal s_axis_threshold_tdata : STD_LOGIC_VECTOR(31 DOWNTO 0) := (others => '0')
 signal m_axis_label_tvalid : STD_LOGIC := '0';
 signal m_axis_label_tready : STD_LOGIC := '1';
 signal m_axis_label_tdata : STD_LOGIC := '0';
-signal aux : STD_LOGIC_VECTOR(31 DOWNTO 0) := (others => '0');
 
 constant T : TIME := 5ns;
 
@@ -118,47 +117,6 @@ m_axis_label_tready <= '1';
 
 s_axis_drift_tdata <= std_logic_vector (TO_UNSIGNED (50, 32));
 s_axis_threshold_tdata <= std_logic_vector (TO_UNSIGNED (200, 32));
-
---process
---begin
-    
---    s_axis_currentX_tvalid <= '1';
---    s_axis_previousX_tvalid <= '1';
---    s_axis_drift_tvalid <= '1';
---    s_axis_threshold_tvalid <= '1';
---    m_axis_label_tready <= '1';
-    
---    s_axis_drift_tdata <= std_logic_vector (TO_UNSIGNED (5, 32));
---    s_axis_threshold_tdata <= std_logic_vector (TO_UNSIGNED (10, 32));
-    
---    WHILE s_axis_currentX_tready = '0' or s_axis_previousX_tready = '0' LOOP
---            WAIT FOR T;
---        END LOOP;
---    wait for T * 2;
-    
---    s_axis_currentX_tdata <= std_logic_vector (TO_UNSIGNED (40, 32));
---    s_axis_previousX_tdata <= std_logic_vector (TO_UNSIGNED (5, 32));
-    
---    WHILE s_axis_currentX_tready = '0' or s_axis_previousX_tready = '0' LOOP
---            WAIT FOR T;
---        END LOOP;
---    wait for T * 2;
-    
---    s_axis_currentX_tdata <= std_logic_vector (TO_UNSIGNED (29, 32));
---    s_axis_previousX_tdata <= std_logic_vector (TO_UNSIGNED (10, 32));
---    wait for T * 2;
-    
---    WHILE s_axis_currentX_tready = '0' or s_axis_previousX_tready = '0' LOOP
---            WAIT FOR T;
---        END LOOP;
---    wait for T * 2;
-    
---    s_axis_currentX_tdata <= std_logic_vector (TO_UNSIGNED (15, 32));
---    s_axis_previousX_tdata <= std_logic_vector (TO_UNSIGNED (10, 32));
---    wait for T * 2;
-    
---    wait;
---end process;
 
 -- read values from the input file
     process (aclk)

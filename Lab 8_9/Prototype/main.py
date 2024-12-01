@@ -8,6 +8,7 @@ def CUSUM(x, threshold, drift):
     gp = 0
     gm = 0
     t_abnormal = []
+    fileContent = []
 
     for i in range(1, len(x)):
         S = x[i][1] - x[i - 1][1]
@@ -19,7 +20,11 @@ def CUSUM(x, threshold, drift):
             gp = 0
             gm = 0
 
-    return t_abnormal
+            fileContent.append(str(i) + ", 1")
+        else:
+            fileContent.append(str(i) + ", 0")
+
+    return t_abnormal, fileContent
 
 def make_plot(timestamp, sensor, name):
     xpoints = array(timestamp)
@@ -27,7 +32,11 @@ def make_plot(timestamp, sensor, name):
 
     plot(xpoints, ypoints, label = 'Values')
 
-    cusum = CUSUM(sensor, 200, 50)
+    cusum, fileContent = CUSUM(sensor, 200, 50)
+
+    with open(name + '_TB.txt', 'w') as f:
+        for i in fileContent:
+            f.write(i + '\n')
 
     xpoints_CUSUM = array([x[0] for x in cusum])
     ypoints_CUSUM = array([x[1] for x in cusum])
