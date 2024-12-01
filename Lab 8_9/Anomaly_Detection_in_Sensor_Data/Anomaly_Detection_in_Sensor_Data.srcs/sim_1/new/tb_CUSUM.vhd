@@ -21,7 +21,10 @@
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
-use IEEE.numeric_std.ALL;
+use STD.TEXTIO.ALL;
+use IEEE.STD_LOGIC_TEXTIO.ALL;
+use IEEE.STD_LOGIC_SIGNED.ALL;
+use IEEE.NUMERIC_STD.ALL;
 
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
@@ -56,8 +59,7 @@ component CUSUM is
          s_axis_threshold_tdata : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
          m_axis_label_tvalid : OUT STD_LOGIC;
          m_axis_label_tready : IN STD_LOGIC;
-         m_axis_label_tdata : OUT STD_LOGIC;
-         aux : OUT STD_LOGIC_VECTOR(31 DOWNTO 0)    
+         m_axis_label_tdata : OUT STD_LOGIC
     );
 end component;
 
@@ -76,11 +78,14 @@ signal s_axis_threshold_tvalid : STD_LOGIC := '0';
 signal s_axis_threshold_tready : STD_LOGIC := '0';
 signal s_axis_threshold_tdata : STD_LOGIC_VECTOR(31 DOWNTO 0) := (others => '0');
 signal m_axis_label_tvalid : STD_LOGIC := '0';
-signal m_axis_label_tready : STD_LOGIC := '0';
+signal m_axis_label_tready : STD_LOGIC := '1';
 signal m_axis_label_tdata : STD_LOGIC := '0';
 signal aux : STD_LOGIC_VECTOR(31 DOWNTO 0) := (others => '0');
 
 constant T : TIME := 5ns;
+
+signal rd_count, wr_count : integer := 0;
+signal end_of_reading : std_logic := '0';
 
 begin
 
@@ -101,52 +106,129 @@ tb_CUSUM: CUSUM port map (
     s_axis_threshold_tdata => s_axis_threshold_tdata,
     m_axis_label_tvalid => m_axis_label_tvalid,
     m_axis_label_tready => m_axis_label_tready,
-    m_axis_label_tdata => m_axis_label_tdata,
-    aux => aux
+    m_axis_label_tdata => m_axis_label_tdata
 );
 
 aclk <= not aclk after T / 2;
-aresetn <= '0', '1' after T * 2;
+aresetn <= '0', '1' after T * 5;
 
-process
-begin
+s_axis_drift_tvalid <= '1';
+s_axis_threshold_tvalid <= '1';
+m_axis_label_tready <= '1';
+
+s_axis_drift_tdata <= std_logic_vector (TO_UNSIGNED (50, 32));
+s_axis_threshold_tdata <= std_logic_vector (TO_UNSIGNED (200, 32));
+
+--process
+--begin
     
-    s_axis_currentX_tvalid <= '1';
-    s_axis_previousX_tvalid <= '1';
-    s_axis_drift_tvalid <= '1';
-    s_axis_threshold_tvalid <= '1';
-    m_axis_label_tready <= '1';
+--    s_axis_currentX_tvalid <= '1';
+--    s_axis_previousX_tvalid <= '1';
+--    s_axis_drift_tvalid <= '1';
+--    s_axis_threshold_tvalid <= '1';
+--    m_axis_label_tready <= '1';
     
-    s_axis_drift_tdata <= std_logic_vector (TO_UNSIGNED (5, 32));
-    s_axis_threshold_tdata <= std_logic_vector (TO_UNSIGNED (10, 32));
+--    s_axis_drift_tdata <= std_logic_vector (TO_UNSIGNED (5, 32));
+--    s_axis_threshold_tdata <= std_logic_vector (TO_UNSIGNED (10, 32));
     
-    WHILE s_axis_currentX_tready = '0' or s_axis_previousX_tready = '0' LOOP
-            WAIT FOR T;
-        END LOOP;
-    wait for T * 2;
+--    WHILE s_axis_currentX_tready = '0' or s_axis_previousX_tready = '0' LOOP
+--            WAIT FOR T;
+--        END LOOP;
+--    wait for T * 2;
     
-    s_axis_currentX_tdata <= std_logic_vector (TO_UNSIGNED (40, 32));
-    s_axis_previousX_tdata <= std_logic_vector (TO_UNSIGNED (5, 32));
+--    s_axis_currentX_tdata <= std_logic_vector (TO_UNSIGNED (40, 32));
+--    s_axis_previousX_tdata <= std_logic_vector (TO_UNSIGNED (5, 32));
     
-    WHILE s_axis_currentX_tready = '0' or s_axis_previousX_tready = '0' LOOP
-            WAIT FOR T;
-        END LOOP;
-    wait for T * 2;
+--    WHILE s_axis_currentX_tready = '0' or s_axis_previousX_tready = '0' LOOP
+--            WAIT FOR T;
+--        END LOOP;
+--    wait for T * 2;
     
-    s_axis_currentX_tdata <= std_logic_vector (TO_UNSIGNED (29, 32));
-    s_axis_previousX_tdata <= std_logic_vector (TO_UNSIGNED (10, 32));
-    wait for T * 2;
+--    s_axis_currentX_tdata <= std_logic_vector (TO_UNSIGNED (29, 32));
+--    s_axis_previousX_tdata <= std_logic_vector (TO_UNSIGNED (10, 32));
+--    wait for T * 2;
     
-    WHILE s_axis_currentX_tready = '0' or s_axis_previousX_tready = '0' LOOP
-            WAIT FOR T;
-        END LOOP;
-    wait for T * 2;
+--    WHILE s_axis_currentX_tready = '0' or s_axis_previousX_tready = '0' LOOP
+--            WAIT FOR T;
+--        END LOOP;
+--    wait for T * 2;
     
-    s_axis_currentX_tdata <= std_logic_vector (TO_UNSIGNED (15, 32));
-    s_axis_previousX_tdata <= std_logic_vector (TO_UNSIGNED (10, 32));
-    wait for T * 2;
+--    s_axis_currentX_tdata <= std_logic_vector (TO_UNSIGNED (15, 32));
+--    s_axis_previousX_tdata <= std_logic_vector (TO_UNSIGNED (10, 32));
+--    wait for T * 2;
     
-    wait;
-end process;
+--    wait;
+--end process;
+
+-- read values from the input file
+    process (aclk)
+        file sensor_data : text open read_mode is "DS18B20.txt";
+        variable in_line : line;
+        variable temperature : std_logic_vector(31 downto 0);
+        variable oldTemperature : std_logic_vector(31 downto 0);
+        variable space : character;
+        variable comma : character;
+    begin
+        if rising_edge(aclk) then
+            if aresetn = '1' and end_of_reading = '0' then
+            
+                if not endfile(sensor_data) then     
+                    
+                    if s_axis_currentX_tready = '1' and s_axis_previousX_tready = '1' then     -- read from the file only when the module is ready to accept data
+                        readline(sensor_data, in_line);
+                        read(in_line, temperature);
+                        
+                        s_axis_currentX_tvalid <= '1';
+                        s_axis_previousX_tvalid <= '1';                        
+                        
+                        oldTemperature := s_axis_currentX_tdata;
+                        
+                        if rd_count = 0 then
+                            s_axis_previousX_tdata <= temperature;
+                        else
+                            s_axis_previousX_tdata <= oldTemperature;
+                        end if;
+                        
+                        s_axis_currentX_tdata <= temperature;
+                        
+                        rd_count <= rd_count + 1;                  
+                    else
+                        s_axis_currentX_tvalid <= '0';
+                        s_axis_previousX_tvalid <= '0';
+                    end if;
+                        
+                else
+                    file_close(sensor_data);
+                    end_of_reading <= '1';
+                end if;
+            end if;
+        end if;
+    end process;
+    
+    -- write results in the output file
+    process 
+        file results : text open write_mode is "D:\Documents\Facultate\SSC\Structure-of-Computer-Systems-Labs\Lab 8_9\DS18B20_results.csv"; -- TO DO: provide the absolute path of the project directory followed by "temperature_results.csv"
+        variable out_line : line;
+    begin
+        wait until rising_edge(aclk);
+            
+        if aresetn = '0' then
+            wait until rising_edge(aresetn);
+        end if;
+    
+        if wr_count <= rd_count then
+            if m_axis_label_tvalid = '1' then   -- write the result only when it is valid
+                write(out_line, wr_count);
+                write(out_line, string'(", "));
+                write(out_line, m_axis_label_tdata);
+                writeline(results, out_line);
+                
+                wr_count <= wr_count + 1;
+            end if;
+        elsif end_of_reading = '1' then
+            file_close(results);
+            wait;
+        end if;
+    end process;
 
 end Behavioral;

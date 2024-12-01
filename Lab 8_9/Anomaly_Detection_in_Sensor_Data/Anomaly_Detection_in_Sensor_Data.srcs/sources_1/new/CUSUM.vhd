@@ -49,8 +49,7 @@ entity CUSUM is
          s_axis_threshold_tdata : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
          m_axis_label_tvalid : OUT STD_LOGIC;
          m_axis_label_tready : IN STD_LOGIC;
-         m_axis_label_tdata : OUT STD_LOGIC;  
-         aux : OUT STD_LOGIC_VECTOR(31 DOWNTO 0)
+         m_axis_label_tdata : OUT STD_LOGIC
     );
 end CUSUM;
 
@@ -503,9 +502,7 @@ threshold_exceeding_comparator1 : threshold_exceeding_comparator port map(
         m_axis_result_tready => m_axis_label_tready,
         m_axis_result_tdata => m_axis_label_tdata
     );
-    
-    aux <= m_axisBroadcaster2_tdata;
-    
+        
 fifo10 : fifo
       PORT MAP (
         s_axis_aresetn => aresetn,
