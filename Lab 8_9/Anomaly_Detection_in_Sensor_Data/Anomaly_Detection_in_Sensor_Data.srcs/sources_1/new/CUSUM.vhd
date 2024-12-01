@@ -34,6 +34,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 entity CUSUM is
     Port (
          aclk : IN STD_LOGIC;
+         aresetn : IN STD_LOGIC;
          s_axis_currentX_tvalid : IN STD_LOGIC;
          s_axis_currentX_tready : OUT STD_LOGIC;
          s_axis_currentX_tdata : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
@@ -48,7 +49,7 @@ entity CUSUM is
          s_axis_threshold_tdata : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
          m_axis_label_tvalid : OUT STD_LOGIC;
          m_axis_label_tready : IN STD_LOGIC;
-         m_axis_label_tdata : OUT STD_LOGIC_VECTOR(31 DOWNTO 0)     
+         m_axis_label_tdata : OUT STD_LOGIC     
     );
 end CUSUM;
 
@@ -149,89 +150,376 @@ COMPONENT broadcaster
   );
 END COMPONENT;
 
---fifo 0
-signal m_axis0_tvalid : STD_LOGIC := '0';
-signal m_axis0_tready : STD_LOGIC := '0';
-signal m_axis0_tdata : STD_LOGIC_VECTOR(31 DOWNTO 0) := (others => '0');
 
---fifo 1
-signal m_axis1_tvalid : STD_LOGIC := '0';
-signal m_axis1_tready : STD_LOGIC := '0';
-signal m_axis1_tdata : STD_LOGIC_VECTOR(31 DOWNTO 0) := (others => '0');
 
---fifo 2
-signal s_axis2_tvalid : STD_LOGIC := '0';
-signal s_axis2_tready : STD_LOGIC := '0';
-signal s_axis2_tdata : STD_LOGIC_VECTOR(31 DOWNTO 0) := (others => '0');
-signal m_axis2_tvalid : STD_LOGIC := '0';
-signal m_axis2_tready : STD_LOGIC := '0';
-signal m_axis2_tdata : STD_LOGIC_VECTOR(31 DOWNTO 0) := (others => '0');
 
---fifo 3
-signal s_axis3_tvalid : STD_LOGIC := '0';
-signal s_axis3_tready : STD_LOGIC := '0';
-signal s_axis3_tdata : STD_LOGIC_VECTOR(31 DOWNTO 0) := (others => '0');
-signal m_axis3_tvalid : STD_LOGIC := '0';
-signal m_axis3_tready : STD_LOGIC := '0';
-signal m_axis3_tdata : STD_LOGIC_VECTOR(31 DOWNTO 0) := (others => '0');
+--adder
+signal s_axis_aADD_tvalid : STD_LOGIC := '0';
+signal s_axis_aADD_tready : STD_LOGIC := '0';
+signal s_axis_aADD_tdata : STD_LOGIC_VECTOR(31 DOWNTO 0) := x"00000000";
+signal s_axis_bADD_tvalid : STD_LOGIC := '0';
+signal s_axis_bADD_tready : STD_LOGIC := '0';
+signal s_axis_bADD_tdata : STD_LOGIC_VECTOR(31 DOWNTO 0) := x"00000000";
+signal m_axis_resultADD_tvalid : STD_LOGIC := '0';
+signal m_axis_resultADD_tready : STD_LOGIC := '0';
+signal m_axis_resultADD_tdata : STD_LOGIC_VECTOR(31 DOWNTO 0) := x"00000000";
 
---fifo 4
-signal s_axis4_tvalid : STD_LOGIC := '0';
-signal s_axis4_tready : STD_LOGIC := '0';
-signal s_axis4_tdata : STD_LOGIC_VECTOR(31 DOWNTO 0) := (others => '0');
-signal m_axis4_tvalid : STD_LOGIC := '0';
-signal m_axis4_tready : STD_LOGIC := '0';
-signal m_axis4_tdata : STD_LOGIC_VECTOR(31 DOWNTO 0) := (others => '0');
+--subtractor 1
+signal s_axis_aSUB1_tvalid : STD_LOGIC := '0';
+signal s_axis_aSUB1_tready : STD_LOGIC := '0';
+signal s_axis_aSUB1_tdata : STD_LOGIC_VECTOR(31 DOWNTO 0) := x"00000000";
+signal s_axis_bSUB1_tvalid : STD_LOGIC := '0';
+signal s_axis_bSUB1_tready : STD_LOGIC := '0';
+signal s_axis_bSUB1_tdata : STD_LOGIC_VECTOR(31 DOWNTO 0) := x"00000000";
+signal m_axis_resultSUB1_tvalid : STD_LOGIC := '0';
+signal m_axis_resultSUB1_tready : STD_LOGIC := '0';
+signal m_axis_resultSUB1_tdata : STD_LOGIC_VECTOR(31 DOWNTO 0) := x"00000000";
 
---fifo 5
-signal s_axis5_tvalid : STD_LOGIC := '0';
-signal s_axis5_tready : STD_LOGIC := '0';
-signal s_axis5_tdata : STD_LOGIC_VECTOR(31 DOWNTO 0) := (others => '0');
-signal m_axis5_tvalid : STD_LOGIC := '0';
-signal m_axis5_tready : STD_LOGIC := '0';
-signal m_axis5_tdata : STD_LOGIC_VECTOR(31 DOWNTO 0) := (others => '0');
+--subtractor 2
+signal s_axis_aSUB2_tvalid : STD_LOGIC := '0';
+signal s_axis_aSUB2_tready : STD_LOGIC := '0';
+signal s_axis_aSUB2_tdata : STD_LOGIC_VECTOR(31 DOWNTO 0) := x"00000000";
+signal s_axis_bSUB2_tvalid : STD_LOGIC := '0';
+signal s_axis_bSUB2_tready : STD_LOGIC := '0';
+signal s_axis_bSUB2_tdata : STD_LOGIC_VECTOR(31 DOWNTO 0) := x"00000000";
+signal m_axis_resultSUB2_tvalid : STD_LOGIC := '0';
+signal m_axis_resultSUB2_tready : STD_LOGIC := '0';
+signal m_axis_resultSUB2_tdata : STD_LOGIC_VECTOR(31 DOWNTO 0) := x"00000000";
 
---fifo 6
-signal s_axis6_tvalid : STD_LOGIC := '0';
-signal s_axis6_tready : STD_LOGIC := '0';
-signal s_axis6_tdata : STD_LOGIC_VECTOR(31 DOWNTO 0) := (others => '0');
-signal m_axis6_tvalid : STD_LOGIC := '0';
-signal m_axis6_tready : STD_LOGIC := '0';
-signal m_axis6_tdata : STD_LOGIC_VECTOR(31 DOWNTO 0) := (others => '0');
+--subtractor 3
+signal s_axis_aSUB3_tvalid : STD_LOGIC := '0';
+signal s_axis_aSUB3_tready : STD_LOGIC := '0';
+signal s_axis_aSUB3_tdata : STD_LOGIC_VECTOR(31 DOWNTO 0) := x"00000000";
+signal s_axis_bSUB3_tvalid : STD_LOGIC := '0';
+signal s_axis_bSUB3_tready : STD_LOGIC := '0';
+signal s_axis_bSUB3_tdata : STD_LOGIC_VECTOR(31 DOWNTO 0) := x"00000000";
+signal m_axis_resultSUB3_tvalid : STD_LOGIC := '0';
+signal m_axis_resultSUB3_tready : STD_LOGIC := '0';
+signal m_axis_resultSUB3_tdata : STD_LOGIC_VECTOR(31 DOWNTO 0) := x"00000000";
 
---fifo 7
-signal s_axis7_tvalid : STD_LOGIC := '0';
-signal s_axis7_tready : STD_LOGIC := '0';
-signal s_axis7_tdata : STD_LOGIC_VECTOR(31 DOWNTO 0) := (others => '0');
-signal m_axis7_tvalid : STD_LOGIC := '0';
-signal m_axis7_tready : STD_LOGIC := '0';
-signal m_axis7_tdata : STD_LOGIC_VECTOR(31 DOWNTO 0) := (others => '0');
+--subtractor 4
+signal s_axis_aSUB4_tvalid : STD_LOGIC := '0';
+signal s_axis_aSUB4_tready : STD_LOGIC := '0';
+signal s_axis_aSUB4_tdata : STD_LOGIC_VECTOR(31 DOWNTO 0) := x"00000000";
+signal s_axis_bSUB4_tvalid : STD_LOGIC := '0';
+signal s_axis_bSUB4_tready : STD_LOGIC := '0';
+signal s_axis_bSUB4_tdata : STD_LOGIC_VECTOR(31 DOWNTO 0) := x"00000000";
+signal m_axis_resultSUB4_tvalid : STD_LOGIC := '0';
+signal m_axis_resultSUB4_tready : STD_LOGIC := '0';
+signal m_axis_resultSUB4_tdata : STD_LOGIC_VECTOR(31 DOWNTO 0) := x"00000000";
 
---fifo 8
-signal s_axis8_tvalid : STD_LOGIC := '0';
-signal s_axis8_tready : STD_LOGIC := '0';
-signal s_axis8_tdata : STD_LOGIC_VECTOR(31 DOWNTO 0) := (others => '0');
-signal m_axis8_tvalid : STD_LOGIC := '0';
-signal m_axis8_tready : STD_LOGIC := '0';
-signal m_axis8_tdata : STD_LOGIC_VECTOR(31 DOWNTO 0) := (others => '0');
+--max 1
+signal s_axis_aMAX1_tvalid : STD_LOGIC := '0';
+signal s_axis_aMAX1_tready : STD_LOGIC := '0';
+signal s_axis_aMAX1_tdata : STD_LOGIC_VECTOR(31 DOWNTO 0) := x"00000000";
+signal s_axis_bMAX1_tvalid : STD_LOGIC := '1';
+signal s_axis_bMAX1_tready : STD_LOGIC := '0';
+signal s_axis_bMAX1_tdata : STD_LOGIC_VECTOR(31 DOWNTO 0) := x"00000000";
+signal m_axis_resultMAX1_tvalid : STD_LOGIC := '0';
+signal m_axis_resultMAX1_tready : STD_LOGIC := '0';
+signal m_axis_resultMAX1_tdata : STD_LOGIC_VECTOR(31 DOWNTO 0) := x"00000000";
 
---fifo 9
-signal s_axis9_tvalid : STD_LOGIC := '0';
-signal s_axis9_tready : STD_LOGIC := '0';
-signal s_axis9_tdata : STD_LOGIC_VECTOR(31 DOWNTO 0) := (others => '0');
-signal m_axis9_tvalid : STD_LOGIC := '0';
-signal m_axis9_tready : STD_LOGIC := '0';
-signal m_axis9_tdata : STD_LOGIC_VECTOR(31 DOWNTO 0) := (others => '0');
+--max 2
+signal s_axis_aMAX2_tvalid : STD_LOGIC := '0';
+signal s_axis_aMAX2_tready : STD_LOGIC := '0';
+signal s_axis_aMAX2_tdata : STD_LOGIC_VECTOR(31 DOWNTO 0) := x"00000000";
+signal s_axis_bMAX2_tvalid : STD_LOGIC := '1';
+signal s_axis_bMAX2_tready : STD_LOGIC := '0';
+signal s_axis_bMAX2_tdata : STD_LOGIC_VECTOR(31 DOWNTO 0) := x"00000000";
+signal m_axis_resultMAX2_tvalid : STD_LOGIC := '0';
+signal m_axis_resultMAX2_tready : STD_LOGIC := '0';
+signal m_axis_resultMAX2_tdata : STD_LOGIC_VECTOR(31 DOWNTO 0) := x"00000000";
 
---fifo 10
-signal s_axis10_tvalid : STD_LOGIC := '0';
-signal s_axis10_tready : STD_LOGIC := '0';
-signal s_axis10_tdata : STD_LOGIC_VECTOR(31 DOWNTO 0) := (others => '0');
-signal m_axis10_tvalid : STD_LOGIC := '0';
-signal m_axis10_tready : STD_LOGIC := '0';
-signal m_axis10_tdata : STD_LOGIC_VECTOR(31 DOWNTO 0) := (others => '0');
+--broadcaster
+signal s_axisBroadcaster_tvalid : STD_LOGIC := '0';
+signal s_axisBroadcaster_tready : STD_LOGIC := '0';
+signal s_axisBroadcaster_tdata : STD_LOGIC_VECTOR(31 DOWNTO 0) := (others => '0');
+signal m_axisBroadcaster_tvalid : STD_LOGIC_VECTOR(1 DOWNTO 0) := (others => '0');
+signal m_axisBroadcaster_tready : STD_LOGIC_VECTOR(1 DOWNTO 0) := (others => '0');
+signal m_axisBroadcaster_tdata : STD_LOGIC_VECTOR(63 DOWNTO 0) := (others => '0');
+
+--threshold exceeding comparator
+signal s_axis_gtp_tvalid : STD_LOGIC := '0';
+signal s_axis_gtp_tready : STD_LOGIC := '0';
+signal s_axis_gtp_tdata : STD_LOGIC_VECTOR(31 DOWNTO 0) := (others => '0');
+signal s_axis_gtm_tvalid : STD_LOGIC := '0';
+signal s_axis_gtm_tready : STD_LOGIC := '0';
+signal s_axis_gtm_tdata : STD_LOGIC_VECTOR(31 DOWNTO 0) := (others => '0');
+--signal s_axis_threshold_tvalid : STD_LOGIC := '0';
+--signal s_axis_threshold_tready : STD_LOGIC := '0';
+--signal s_axis_threshold_tdata : STD_LOGIC_VECTOR(31 DOWNTO 0) := (others => '0');
+signal m_axis_gtpOut_tvalid : STD_LOGIC := '0';
+signal m_axis_gtpOut_tready : STD_LOGIC := '0';
+signal m_axis_gtpOut_tdata : STD_LOGIC_VECTOR(31 DOWNTO 0) := (others => '0');
+signal m_axis_gtmOut_tvalid : STD_LOGIC := '0';
+signal m_axis_gtmOut_tready : STD_LOGIC := '0';
+signal m_axis_gtmOut_tdata : STD_LOGIC_VECTOR(31 DOWNTO 0) := (others => '0');
+signal m_axis_result_tvalid : STD_LOGIC := '0';
+signal m_axis_result_tready : STD_LOGIC := '0';
+signal m_axis_result_tdata : STD_LOGIC  := '0'; 
 
 begin
 
+fifo0 : fifo
+      PORT MAP (
+        s_axis_aresetn => aresetn,
+        s_axis_aclk => aclk,
+        s_axis_tvalid => s_axis_currentX_tvalid,
+        s_axis_tready => s_axis_currentX_tready,
+        s_axis_tdata => s_axis_currentX_tdata,
+        m_axis_tvalid => s_axis_aSUB1_tvalid,
+        m_axis_tready => s_axis_aSUB1_tready,
+        m_axis_tdata => s_axis_aSUB1_tdata
+      );
 
+fifo1 : fifo
+      PORT MAP (
+        s_axis_aresetn => aresetn,
+        s_axis_aclk => aclk,
+        s_axis_tvalid => s_axis_previousX_tvalid,
+        s_axis_tready => s_axis_previousX_tready,
+        s_axis_tdata => s_axis_previousX_tdata,
+        m_axis_tvalid => s_axis_bSUB1_tvalid,
+        m_axis_tready => s_axis_bSUB1_tready,
+        m_axis_tdata =>s_axis_bSUB1_tdata
+      );
+  
+subtractor1 : subtractor 
+    PORT MAP (
+        aclk => aclk,
+        s_axis_a_tvalid => s_axis_aSUB1_tvalid,
+        s_axis_a_tready => s_axis_aSUB1_tready,
+        s_axis_a_tdata => s_axis_aSUB1_tdata,
+        s_axis_b_tvalid => s_axis_bSUB1_tvalid,
+        s_axis_b_tready => s_axis_bSUB1_tready,
+        s_axis_b_tdata => s_axis_bSUB1_tdata,
+        m_axis_result_tvalid => m_axis_resultSUB1_tvalid,
+        m_axis_result_tready => m_axis_resultSUB1_tready,
+        m_axis_result_tdata => m_axis_resultSUB1_tdata
+    );
+
+fifo3 : fifo
+      PORT MAP (
+        s_axis_aresetn => aresetn,
+        s_axis_aclk => aclk,
+        s_axis_tvalid => m_axis_resultSUB1_tvalid,
+        s_axis_tready => m_axis_resultSUB1_tready,
+        s_axis_tdata => m_axis_resultSUB1_tdata,
+        m_axis_tvalid => s_axisBroadcaster_tvalid,
+        m_axis_tready => s_axisBroadcaster_tready,
+        m_axis_tdata => s_axisBroadcaster_tdata
+      );
+
+broadcaster1 : broadcaster
+      PORT MAP (
+        aclk => aclk,
+        aresetn => aresetn,
+        s_axis_tvalid => s_axisBroadcaster_tvalid,
+        s_axis_tready => s_axisBroadcaster_tready,
+        s_axis_tdata => s_axisBroadcaster_tdata,
+        m_axis_tvalid => m_axisBroadcaster_tvalid,
+        m_axis_tready => m_axisBroadcaster_tready,
+        m_axis_tdata => m_axisBroadcaster_tdata
+      );
+  
+adder1 : adder 
+    PORT MAP (
+        aclk => aclk,
+        s_axis_a_tvalid => s_axis_aADD_tvalid,
+        s_axis_a_tready => s_axis_aADD_tready,
+        s_axis_a_tdata => s_axis_aADD_tdata,
+        s_axis_b_tvalid =>  m_axisBroadcaster_tvalid(0),
+        s_axis_b_tready =>  m_axisBroadcaster_tready(0),
+        s_axis_b_tdata =>  m_axisBroadcaster_tdata(31 downto 0),
+        m_axis_result_tvalid => m_axis_resultADD_tvalid,
+        m_axis_result_tready => m_axis_resultADD_tready,
+        m_axis_result_tdata => m_axis_resultADD_tdata
+    );
+
+subtractor2 : subtractor 
+    PORT MAP (
+        aclk => aclk,
+        s_axis_a_tvalid => m_axisBroadcaster_tvalid(1),
+        s_axis_a_tready => m_axisBroadcaster_tready(1),
+        s_axis_a_tdata => m_axisBroadcaster_tdata(63 downto 32),
+        s_axis_b_tvalid => s_axis_bSUB2_tvalid,
+        s_axis_b_tready => s_axis_bSUB2_tready,
+        s_axis_b_tdata => s_axis_bSUB2_tdata,
+        m_axis_result_tvalid => m_axis_resultSUB2_tvalid,
+        m_axis_result_tready => m_axis_resultSUB2_tready,
+        m_axis_result_tdata => m_axis_resultSUB2_tdata
+    );
+    
+fifo4 : fifo
+      PORT MAP (
+        s_axis_aresetn => aresetn,
+        s_axis_aclk => aclk,
+        s_axis_tvalid => m_axis_resultADD_tvalid,
+        s_axis_tready => m_axis_resultADD_tready,
+        s_axis_tdata => m_axis_resultADD_tdata,
+        m_axis_tvalid => s_axis_aSUB3_tvalid,
+        m_axis_tready => s_axis_aSUB3_tready,
+        m_axis_tdata => s_axis_aSUB3_tdata
+      );
+    
+fifo5 : fifo
+      PORT MAP (
+        s_axis_aresetn => aresetn,
+        s_axis_aclk => aclk,
+        s_axis_tvalid => m_axis_resultSUB2_tvalid,
+        s_axis_tready => m_axis_resultSUB2_tready,
+        s_axis_tdata => m_axis_resultSUB2_tdata,
+        m_axis_tvalid => s_axis_aSUB4_tvalid,
+        m_axis_tready => s_axis_aSUB4_tready,
+        m_axis_tdata => s_axis_aSUB4_tdata
+      );
+      
+subtractor3 : subtractor 
+    PORT MAP (
+        aclk => aclk,
+        s_axis_a_tvalid => s_axis_aSUB3_tvalid,
+        s_axis_a_tready => s_axis_aSUB3_tready,
+        s_axis_a_tdata => s_axis_aSUB3_tdata,
+        s_axis_b_tvalid => s_axis_drift_tvalid,
+        s_axis_b_tready => s_axis_drift_tready,
+        s_axis_b_tdata => s_axis_drift_tdata,
+        m_axis_result_tvalid => m_axis_resultSUB3_tvalid,
+        m_axis_result_tready => m_axis_resultSUB3_tready,
+        m_axis_result_tdata => m_axis_resultSUB3_tdata
+    );
+    
+subtractor4 : subtractor 
+    PORT MAP (
+        aclk => aclk,
+        s_axis_a_tvalid => s_axis_aSUB4_tvalid,
+        s_axis_a_tready => s_axis_aSUB4_tready,
+        s_axis_a_tdata => s_axis_aSUB4_tdata,
+        s_axis_b_tvalid => s_axis_drift_tvalid,
+        s_axis_b_tready => s_axis_drift_tready,
+        s_axis_b_tdata => s_axis_drift_tdata,
+        m_axis_result_tvalid => m_axis_resultSUB4_tvalid,
+        m_axis_result_tready => m_axis_resultSUB4_tready,
+        m_axis_result_tdata => m_axis_resultSUB4_tdata
+    );
+    
+fifo6 : fifo
+      PORT MAP (
+        s_axis_aresetn => aresetn,
+        s_axis_aclk => aclk,
+        s_axis_tvalid => m_axis_resultSUB3_tvalid,
+        s_axis_tready => m_axis_resultSUB3_tready,
+        s_axis_tdata => m_axis_resultSUB3_tdata,
+        m_axis_tvalid => s_axis_aMAX1_tvalid,
+        m_axis_tready => s_axis_aMAX1_tready,
+        m_axis_tdata => s_axis_aMAX1_tdata
+      );
+      
+fifo7 : fifo
+      PORT MAP (
+        s_axis_aresetn => aresetn,
+        s_axis_aclk => aclk,
+        s_axis_tvalid => m_axis_resultSUB4_tvalid,
+        s_axis_tready => m_axis_resultSUB4_tready,
+        s_axis_tdata => m_axis_resultSUB4_tdata,
+        m_axis_tvalid => s_axis_aMAX2_tvalid,
+        m_axis_tready => s_axis_aMAX2_tready,
+        m_axis_tdata => s_axis_aMAX2_tdata
+      );
+      
+max1 : max port map (
+        aclk => aclk,
+        s_axis_a_tvalid => s_axis_aMAX1_tvalid,
+        s_axis_a_tready => s_axis_aMAX1_tready,
+        s_axis_a_tdata => s_axis_aMAX1_tdata,
+        s_axis_b_tvalid => s_axis_bMAX1_tvalid,
+        s_axis_b_tready => s_axis_bMAX1_tready,
+        s_axis_b_tdata => s_axis_bMAX1_tdata,
+        m_axis_result_tvalid => m_axis_resultMAX1_tvalid,
+        m_axis_result_tready => m_axis_resultMAX1_tready,
+        m_axis_result_tdata => m_axis_resultMAX1_tdata
+    );
+    
+max2 : max port map (
+        aclk => aclk,
+        s_axis_a_tvalid => s_axis_aMAX2_tvalid,
+        s_axis_a_tready => s_axis_aMAX2_tready,
+        s_axis_a_tdata => s_axis_aMAX2_tdata,
+        s_axis_b_tvalid => s_axis_bMAX2_tvalid,
+        s_axis_b_tready => s_axis_bMAX2_tready,
+        s_axis_b_tdata => s_axis_bMAX2_tdata,
+        m_axis_result_tvalid => m_axis_resultMAX2_tvalid,
+        m_axis_result_tready => m_axis_resultMAX2_tready,
+        m_axis_result_tdata => m_axis_resultMAX2_tdata
+    );
+    
+fifo8 : fifo
+      PORT MAP (
+        s_axis_aresetn => aresetn,
+        s_axis_aclk => aclk,
+        s_axis_tvalid => m_axis_resultMAX1_tvalid,
+        s_axis_tready => m_axis_resultMAX1_tready,
+        s_axis_tdata => m_axis_resultMAX1_tdata,
+        m_axis_tvalid => s_axis_gtp_tvalid,
+        m_axis_tready => s_axis_gtp_tready,
+        m_axis_tdata => s_axis_gtp_tdata
+      );
+      
+fifo9 : fifo
+      PORT MAP (
+        s_axis_aresetn => aresetn,
+        s_axis_aclk => aclk,
+        s_axis_tvalid => m_axis_resultMAX2_tvalid,
+        s_axis_tready => m_axis_resultMAX2_tready,
+        s_axis_tdata => m_axis_resultMAX2_tdata,
+        m_axis_tvalid => s_axis_gtm_tvalid,
+        m_axis_tready => s_axis_gtm_tready,
+        m_axis_tdata => s_axis_gtm_tdata
+      );
+      
+threshold_exceeding_comparator0 : threshold_exceeding_comparator port map(
+        aclk => aclk,
+        s_axis_gtp_tvalid => s_axis_gtp_tvalid,
+        s_axis_gtp_tready => s_axis_gtp_tready,
+        s_axis_gtp_tdata => s_axis_gtp_tdata,
+        s_axis_gtm_tvalid => s_axis_gtm_tvalid,
+        s_axis_gtm_tready => s_axis_gtm_tready,
+        s_axis_gtm_tdata => s_axis_gtm_tdata,
+        s_axis_threshold_tvalid => s_axis_threshold_tvalid,
+        s_axis_threshold_tready => s_axis_threshold_tready,
+        s_axis_threshold_tdata => s_axis_threshold_tdata,
+        m_axis_gtpOut_tvalid => m_axis_gtpOut_tvalid,
+        m_axis_gtpOut_tready => m_axis_gtpOut_tready,
+        m_axis_gtpOut_tdata => m_axis_gtpOut_tdata,
+        m_axis_gtmOut_tvalid => m_axis_gtmOut_tvalid,
+        m_axis_gtmOut_tready => m_axis_gtmOut_tready,
+        m_axis_gtmOut_tdata => m_axis_gtmOut_tdata,
+        m_axis_result_tvalid => m_axis_label_tvalid,
+        m_axis_result_tready => m_axis_label_tready,
+        m_axis_result_tdata => m_axis_label_tdata
+    );
+    
+fifo10 : fifo
+      PORT MAP (
+        s_axis_aresetn => aresetn,
+        s_axis_aclk => aclk,
+        s_axis_tvalid =>  m_axis_gtpOut_tvalid,
+        s_axis_tready =>  m_axis_gtpOut_tready,
+        s_axis_tdata =>  m_axis_gtpOut_tdata,
+        m_axis_tvalid => s_axis_aADD_tvalid,
+        m_axis_tready => s_axis_aADD_tready,
+        m_axis_tdata => s_axis_aADD_tdata
+      );
+      
+fifo11 : fifo
+      PORT MAP (
+        s_axis_aresetn => aresetn,
+        s_axis_aclk => aclk,
+        s_axis_tvalid =>  m_axis_gtmOut_tvalid,
+        s_axis_tready =>  m_axis_gtmOut_tready,
+        s_axis_tdata =>  m_axis_gtmOut_tdata,
+        m_axis_tvalid => s_axis_bSUB2_tvalid,
+        m_axis_tready => s_axis_bSUB2_tready,
+        m_axis_tdata => s_axis_bSUB2_tdata
+      );
+      
 end Behavioral;

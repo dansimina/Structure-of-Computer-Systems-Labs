@@ -51,7 +51,7 @@ COMPONENT broadcaster
 END COMPONENT;
 
 signal aclk : STD_LOGIC := '0';
-signal aresetn : STD_LOGIC := '0';
+signal aresetn : STD_LOGIC := '1';
 signal s_axis_tvalid : STD_LOGIC := '0';
 signal s_axis_tready : STD_LOGIC := '0';
 signal s_axis_tdata : STD_LOGIC_VECTOR(31 DOWNTO 0) := (others => '0');
@@ -84,14 +84,18 @@ your_instance_name : broadcaster
     
     process
     begin
+        aresetn <= '0';
+        wait for T * 4;
+        
+        aresetn <= '1';
         s_axis_tvalid <= '1';
         m_axis_tready <= "11";
         
         s_axis_tdata <= x"0000F0F0";
-        wait for T * 2;
+        wait for T * 4;
         
         s_axis_tdata <= x"A0A0A0A0";
-        wait for T * 2;
+        wait for T * 4;
         
         wait;
     
