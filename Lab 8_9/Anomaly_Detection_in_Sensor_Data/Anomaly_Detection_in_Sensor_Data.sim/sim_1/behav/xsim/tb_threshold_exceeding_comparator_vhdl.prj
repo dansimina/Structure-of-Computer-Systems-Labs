@@ -1,0 +1,7 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../Anomaly_Detection_in_Sensor_Data.srcs/sources_1/new/threshold_exceeding_comparator.vhd" \
+"../../../../Anomaly_Detection_in_Sensor_Data.srcs/sim_1/new/tb_threshold_exceeding_comparator.vhd" \
+
+# Do not sort compile order
+nosort

@@ -120,7 +120,7 @@ s_axis_threshold_tdata <= std_logic_vector (TO_UNSIGNED (200, 32));
 
 -- read values from the input file
     process (aclk)
-        file sensor_data : text open read_mode is "DS18B20.txt";
+        file sensor_data : text open read_mode is "Thermistor_binary.txt";
         variable in_line : line;
         variable temperature : std_logic_vector(31 downto 0);
         variable oldTemperature : std_logic_vector(31 downto 0);
@@ -165,7 +165,7 @@ s_axis_threshold_tdata <= std_logic_vector (TO_UNSIGNED (200, 32));
     
     -- write results in the output file
     process 
-        file results : text open write_mode is "D:\Documents\Facultate\SSC\Structure-of-Computer-Systems-Labs\Lab 8_9\DS18B20_results.csv"; -- TO DO: provide the absolute path of the project directory followed by "temperature_results.csv"
+        file results : text open write_mode is "D:\Documents\Facultate\SSC\Structure-of-Computer-Systems-Labs\Lab 8_9\Thermistor_vivado_TB.csv"; -- TO DO: provide the absolute path of the project directory followed by "temperature_results.csv"
         variable out_line : line;
     begin
         wait until rising_edge(aclk);

@@ -104,6 +104,10 @@ your_instance_name : broadcaster
         s_axis_tdata <= x"A0A0A0A0";
         wait for T * 2;
         
+        m_axis2_tready <= '1'; 
+        s_axis_tdata <= x"BEBEBEBE";
+        wait for T * 2;
+        
         wait;
     
     end process;
