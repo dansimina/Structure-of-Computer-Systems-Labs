@@ -2,9 +2,9 @@
 -- Company: 
 -- Engineer: 
 -- 
--- Create Date: 12/05/2024 01:35:03 PM
+-- Create Date: 12/06/2024 10:44:46 PM
 -- Design Name: 
--- Module Name: BasicMemory - Behavioral
+-- Module Name: tb_SubModule - Behavioral
 -- Project Name: 
 -- Target Devices: 
 -- Tool Versions: 
@@ -21,7 +21,6 @@
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
-use IEEE.numeric_std.all;
 
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
@@ -32,23 +31,29 @@ use IEEE.numeric_std.all;
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
-entity BasicMemory is
-    Port(
-        A: in std_logic_vector(15 downto 0);
-        D: inout std_logic_vector(7 downto 0);
-        CS : in std_logic;
-        WR : in std_logic
-    );
-end BasicMemory;
+entity tb_SubModule is
+--  Port ( );
+end tb_SubModule;
 
-architecture Behavioral of BasicMemory is
+architecture Behavioral of tb_SubModule is
 
-type MemoryType is array (0 to 65535) of std_logic_vector(7 downto 0);
-signal memory: MemoryType := (others => "00000000");
+component SubModule is
+  Port ( 
+    A: in std_logic_vector(16 downto 0);
+    D: inout std_logic_vector(15 downto 0);
+    WR : in std_logic;
+    SEL : in std_logic;
+    BHE : in std_logic
+  );
+end component;
+
+signal A: std_logic_vector(16 downto 0) := (others => '0');
+signal D: std_logic_vector(15 downto 0) := (others => '0');
+signal WR : std_logic := '0';
+signal SEL : std_logic := '0';
+signal BHE : std_logic := '0';
 
 begin
-    
-    memory(TO_INTEGER(unsigned(A))) <= D when CS = '0' and WR = '0';
-    D <= memory(TO_INTEGER(unsigned(A))) when CS = '0' and WR = '1' else (others => 'Z');
+
 
 end Behavioral;
