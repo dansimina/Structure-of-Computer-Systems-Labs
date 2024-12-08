@@ -53,7 +53,61 @@ signal WR : std_logic := '0';
 signal SEL : std_logic := '0';
 signal BHE : std_logic := '0';
 
-begin
+constant T : time := 5ns;
 
+begin
+    
+    tb_SubModule: SubModule port map (
+        A => A,
+        D => D,
+        WR => WR,
+        SEL => SEL,
+        BHE => BHE
+    );
+    
+    process
+    begin
+        wait for T;
+        SEL <= '0';
+        wait for T;
+        
+        WR <= '0';
+        A <= "00000000000000010";
+        D <= x"AABB";
+        wait for T;
+        
+        A <= "00000000000000100";
+        D <= x"CCDD";
+        wait for T;
+        
+        A <= "00000000000000110";
+        D <= x"EEFF";
+        wait for T;
+        
+        WR <= '1';
+        D <= "ZZZZZZZZZZZZZZZZ";
+        A <= "00000000000000100";
+        wait for T;
+        
+        A <= "00000000000000010";
+        wait for T;
+        
+        WR <= '0';
+        A <= "00000000000000100";
+        D <= x"1234";
+        wait for T;
+        
+        WR <= '1';
+        D <= "ZZZZZZZZZZZZZZZZ";
+        A <= "00000000000000110";
+        wait for T;
+        
+        A <= "00000000000000100";
+        wait for T;
+        
+        SEL <= '1';
+        wait;
+        
+    end process;
 
 end Behavioral;

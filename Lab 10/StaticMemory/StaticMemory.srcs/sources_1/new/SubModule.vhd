@@ -45,7 +45,7 @@ architecture Behavioral of SubModule is
 
 component BasicMemory is
     Port(
-        A: in std_logic_vector(16 downto 0);
+        A: in std_logic_vector(15 downto 0);
         D: inout std_logic_vector(7 downto 0);
         CS : in std_logic;
         WR : in std_logic
@@ -84,9 +84,13 @@ begin
     WR1 <= WR;
     WR2 <= WR;
     
-    CS1 <= SEL or A(0);
-    CS2 <= SEL or BHE;
+    CS1 <= '0' when SEL = '0' and A(0) = '0' else '1';
+    CS2 <= '0' when SEL = '0' and BHE = '0' else '1';
     
-    D <= D2 & D1;
-
+    D(7 downto 0) <= D1 when WR = '1' else (others => 'Z');
+    D(15 downto 8) <= D2 when WR = '1' else (others => 'Z');
+    
+    D1 <= D(7 downto 0) when WR = '0' else (others => 'Z');
+    D2 <= D(15 downto 8) when WR = '0' else (others => 'Z');
+    
 end Behavioral;

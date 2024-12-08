@@ -36,8 +36,8 @@ entity BasicMemory is
     Port(
         A: in std_logic_vector(15 downto 0);
         D: inout std_logic_vector(7 downto 0);
-        CS : in std_logic;
-        WR : in std_logic
+        CS: in std_logic;
+        WR: in std_logic
     );
 end BasicMemory;
 
