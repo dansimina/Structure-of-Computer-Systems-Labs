@@ -2,9 +2,9 @@
 -- Company: 
 -- Engineer: 
 -- 
--- Create Date: 12/07/2024 08:38:20 PM
+-- Create Date: 12/08/2024 02:41:49 PM
 -- Design Name: 
--- Module Name: DecoderCircuit - Behavioral
+-- Module Name: tb_Decoder3to8 - Behavioral
 -- Project Name: 
 -- Target Devices: 
 -- Tool Versions: 
@@ -31,17 +31,11 @@ use IEEE.STD_LOGIC_1164.ALL;
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
-entity DecoderCircuit is
-  Port ( 
-    A: in std_logic_vector (6 downto 0);
-    RD: in std_logic;
-    WR: in std_logic;
-    Sel: out std_logic_vector (7 downto 0);
-    SelModule: out std_logic
-  );
-end DecoderCircuit;
+entity tb_Decoder3to8 is
+--  Port ( );
+end tb_Decoder3to8;
 
-architecture Behavioral of DecoderCircuit is
+architecture Behavioral of tb_Decoder3to8 is
 
 component Decoder3to8 is
   Port ( 
@@ -53,23 +47,56 @@ component Decoder3to8 is
   );
 end component;
 
+signal A: std_logic_vector(2 downto 0) := (others => '0');
 signal E1: std_logic := '0';
 signal E2: std_logic := '0';
 signal E3: std_logic := '1';
+signal O: std_logic_vector (7 downto 0) := (others => '0'); 
+
+constant T : time := 5ns;
 
 begin
-    
-    etDecoder3to8: Decoder3to8 port map (
-        A => A(2 downto 0),
+
+    tb_Decoder3to8: Decoder3to8 port map (
+        A => A,
         E1 => E1,
         E2 => E2,
-        E3 => '1',
-        O => Sel
+        E3 => E3,
+        O => O
     );
     
-    E1 <= '0' when A(6 downto 3) = "1100" else '1';
-    E2 <= '1' when RD = '1' and WR = '1' else '0';
     
-    SelModule <= E1 or E2;
+    process
+    begin
+        
+        A <= "000";
+        wait for T;
+        
+        A <= "001";
+        wait for T;
+        
+        A <= "010";
+        wait for T;
+        
+        E1 <= '1';
+        wait for T;
+        
+        E1 <= '0';
+        wait for T;
+        
+        E2 <= '1';
+        wait for T;
+        
+        E2 <= '0';
+        wait for T;
+        
+        E3 <= '0';
+        wait for T;
+        
+        E3 <= '1';
+        wait for T;
+        
+    wait;
+    end process;
 
 end Behavioral;

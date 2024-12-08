@@ -105,6 +105,15 @@ begin
         A <= "00000000000000100";
         wait for T;
         
+         A(0) <= '1';
+         wait for T;
+         
+         BHE <= '1';
+         wait for T;
+         
+         A(0) <= '0';
+         wait for T;
+        
         SEL <= '1';
         wait;
         
