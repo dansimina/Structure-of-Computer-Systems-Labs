@@ -43,8 +43,8 @@ component MainBlock is
     DataBus: inout std_logic_vector (15 downto 0);
     BHE: in std_logic;
     RD: in std_logic;
-    WR: in std_logic;
-    aux: out std_logic_vector (16 downto 0)
+    WR: in std_logic
+--    aux: out std_logic_vector (16 downto 0)
   );
 end component;
 
@@ -53,7 +53,7 @@ signal DataBus: std_logic_vector (15 downto 0) := (others => '0');
 signal BHE: std_logic := '0';
 signal RD: std_logic := '0';
 signal WR: std_logic := '0';
-signal aux: std_logic_vector (16 downto 0) := (others => '0');
+--signal aux: std_logic_vector (16 downto 0) := (others => '0');
 
 constant T : time := 5ns;
 
@@ -64,8 +64,8 @@ begin
         DataBus => DataBus,
         BHE => BHE,
         RD => RD,
-        WR => WR,
-        aux => aux
+        WR => WR
+--        aux => aux
     );
     
     process

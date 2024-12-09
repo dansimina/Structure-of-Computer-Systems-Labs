@@ -37,8 +37,8 @@ entity MainBlock is
     DataBus: inout std_logic_vector (15 downto 0);
     BHE: in std_logic;
     RD: in std_logic;
-    WR: in std_logic;
-    aux: out std_logic_vector (16 downto 0)
+    WR: in std_logic
+--    aux: out std_logic_vector (16 downto 0)
   );
 end MainBlock;
 
@@ -82,7 +82,7 @@ component AmplificationCircuit245 is
   );
 end component;
 
-signal Address: std_logic_vector(15 downto 0) := (others => 'Z');
+signal Address: std_logic_vector(16 downto 0) := (others => 'Z');
 signal Sel: std_logic_vector (7 downto 0) := (others => 'Z');
 signal Data: std_logic_vector(15 downto 0) := (others => 'Z');
 
@@ -95,21 +95,18 @@ signal SelModule: std_logic := '0';
 
 signal AuxIn: std_logic_vector (7 downto 0) := (others => 'Z');
 signal AuxOut: std_logic_vector (7 downto 0) := (others => 'Z');
-
-signal AuxAddress: std_logic_vector (16 downto 0) := (others => '0');
-
 begin
 
     AmplificationCircuit244_1: AmplificationCircuit244 port map (
         INPUT => AddressBus(8 downto 1),
-        OUTPUT => Address(7 downto 0),
+        OUTPUT => Address(8 downto 1),
         G0 => '0',
         G1 => '0'
     );
     
     AmplificationCircuit244_2: AmplificationCircuit244 port map (
         INPUT => AddressBus(16 downto 9),
-        OUTPUT => Address(15 downto 8),
+        OUTPUT => Address(16 downto 9),
         G0 => '0',
         G1 => '0'
     );
@@ -127,7 +124,7 @@ begin
         G1 => '0'
     );
     
-    SA0 <= AuxOut(0);
+    Address(0) <= AuxOut(0);
     SBHE <= AuxOut(1);
     SRD <= AuxOut(2);
     SWR <= AuxOut(3);
@@ -136,24 +133,29 @@ begin
         A => AddressBus(23 downto 17),
         RD => SRD,
         WR => SWR,
+--        RD => RD,
+--        WR => WR,
         SEL => Sel,
         SelModule => SelModule
     );
-    
-    AuxAddress <= Address & SA0;
-    
+        
     MemoryMatrix_1: MemoryMatrix port map (
-        A => AuxAddress,
+        A => Address,
+--        A => AddressBus(16 downto 0),
         WR => SWR,
+--        WR => WR,
         BHE => SBHE,
+--        BHE => BHE,
         SEL => Sel,
         D => Data
+--        D => DataBus
     );
     
     AmplificationCircuit245_1: AmplificationCircuit245 port map (
         A => Data(7 downto 0),
         B => DataBus(7 downto 0),
         Dir => SRD,
+--        Dir => RD,
         CS => SelModule
     );
     
@@ -161,9 +163,10 @@ begin
         A => Data(15 downto 8),
         B => DataBus(15 downto 8),
         Dir => SRD,
+--        Dir => RD,
         CS => SelModule
     );
     
-    aux <= '0' & Data;
+--    aux <= '0' & Data;
 
 end Behavioral;
