@@ -80,7 +80,7 @@ begin
         wait for T;
         
         DataBus <= x"CCDD";
-        AddressBus <= x"CE0010";
+        AddressBus <= x"CA0270";
         wait for T;
         
         DataBus <= x"EEFF";
@@ -93,13 +93,26 @@ begin
         DataBus <= (others => 'Z');
         wait for T;
         
-        AddressBus <= x"CE0010";
+        AddressBus <= x"CA0270";
         wait for T;
        
         AddressBus <= x"C01010";
         wait for T;
         
         AddressBus <= x"CE2000";
+        wait for T;
+        
+        AddressBus <= x"CE2001";
+        wait for T;
+        
+        AddressBus <= x"CE2000";
+        BHE <= '1';
+        wait for T;
+        
+        BHE <= '0';
+        wait for T;
+        
+        RD  <= '1';
         wait for T;
         
         wait;       
