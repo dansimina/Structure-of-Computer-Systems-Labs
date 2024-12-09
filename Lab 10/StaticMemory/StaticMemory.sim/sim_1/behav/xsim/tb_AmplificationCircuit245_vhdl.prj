@@ -1,0 +1,7 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../StaticMemory.srcs/sources_1/new/AmplificationCircuit245.vhd" \
+"../../../../StaticMemory.srcs/sim_1/new/tb_AmplificationCircuit245.vhd" \
+
+# Do not sort compile order
+nosort

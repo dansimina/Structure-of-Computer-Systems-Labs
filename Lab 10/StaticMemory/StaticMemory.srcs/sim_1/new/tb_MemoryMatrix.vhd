@@ -47,11 +47,11 @@ component MemoryMatrix is
   );
 end component;
 
-signal A: std_logic_vector(16 downto 0);
-signal WR : std_logic;
-signal BHE : std_logic;
-signal SEL: std_logic_vector (7 downto 0);
-signal D: std_logic_vector(15 downto 0);
+signal A: std_logic_vector(16 downto 0) := (others => '0');
+signal WR : std_logic := '0';
+signal BHE : std_logic := '0';
+signal SEL: std_logic_vector (7 downto 0) := (others => '0');
+signal D: std_logic_vector(15 downto 0) := (others => '0');
 
 constant T : time := 5ns;
 
@@ -67,9 +67,56 @@ begin
     
     process
     begin
+        WR <= '0';
+        SEL <= "11111110";
+        A <= "00000000000000010";
+        D <= x"AABB";
+        wait for T;
         
-        A <= "00000000000000000";
+        WR <= '0';
+        SEL <= "11111101";
+        A <= "00000000000000010";
+        D <= x"CCDD";
+        wait for T;
         
+        WR <= '0';
+        SEL <= "10111111";
+        A <= "00000000000000110";
+        D <= x"EEFF";
+        wait for T;
+        
+        WR <= '1';
+        wait for T;
+        
+        SEL <= "11111110";
+        A <= "00000000000000010";
+        D <= "ZZZZZZZZZZZZZZZZ";
+        wait for T;
+        
+        SEL <= "11111101";
+        A <= "00000000000000010";
+        D <= "ZZZZZZZZZZZZZZZZ";
+        wait for T;
+        
+        SEL <= "10111111";
+        A <= "00000000000000110";
+        D <= "ZZZZZZZZZZZZZZZZ";
+        wait for T;
+        
+        BHE <= '1';
+        wait for T;
+        
+        A <= "00000000000000111";
+        BHE <= '0';
+        wait for T;
+        
+        A <= "00000000000000110";
+        BHE <= '0';
+        wait for T;
+        
+        SEL <= "11111111";
+        
+        wait;
     end process;
 
 end Behavioral;

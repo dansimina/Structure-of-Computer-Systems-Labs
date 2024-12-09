@@ -1,0 +1,1 @@
+--incr --debug "typical" --relax --mt "2" -L "xil_defaultlib" -L "secureip" --snapshot "tb_AmplificationCircuit244_behav" "xil_defaultlib.tb_AmplificationCircuit244" -log "elaborate.log" 
