@@ -1,0 +1,14 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../StaticMemory.srcs/sources_1/new/AmplificationCircuit244.vhd" \
+"../../../../StaticMemory.srcs/sources_1/new/AmplificationCircuit245.vhd" \
+"../../../../StaticMemory.srcs/sources_1/new/BasicMemory.vhd" \
+"../../../../StaticMemory.srcs/sources_1/new/Decoder3to8.vhd" \
+"../../../../StaticMemory.srcs/sources_1/new/DecoderCircuit.vhd" \
+"../../../../StaticMemory.srcs/sources_1/new/MainBlock.vhd" \
+"../../../../StaticMemory.srcs/sources_1/new/MemoryMatrix.vhd" \
+"../../../../StaticMemory.srcs/sources_1/new/SubModule.vhd" \
+"../../../../StaticMemory.srcs/sim_1/new/tb_MainBlock.vhd" \
+
+# Do not sort compile order
+nosort
