@@ -1,0 +1,5 @@
+10 linii de adresa pentru rand, 10 pt coloana
+1mb => 2^20
+
+cat de mari sunt blocurile
+cate blocuri avem
